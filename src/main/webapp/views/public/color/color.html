@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <title></title>
+        
+        <link rel="stylesheet" type="text/css" href="css/jquery.bigcolorpicker.css" />
+        <style type="text/css">
+            #square_one{width:25px;height:25px;display:block; border:1px solid #d3d3d3;}
+        </style>
+    </head>
+    <body>
+        <input type="text" id="input_1"/><input type="text" id="input_2"/>
+        <a href="javascript:void(0)" id="square_one"></a>
+        <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.bigcolorpicker.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $("#input_1").bigColorpicker("input_1");
+				var a;
+                $("#square_one").bigColorpicker(function(el, color) {
+                    $(el).css("background-color", color);
+					a=color;
+					$("#input_2").val(a);
+                });
+            });
+        </script>
+    </body>
+</html>
+

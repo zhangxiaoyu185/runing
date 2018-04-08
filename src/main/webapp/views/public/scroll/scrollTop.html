@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>向上滚动</title>
+    <style type="text/css">
+        #demo {
+            background: #FFF;
+            overflow:hidden;
+            border: 1px dashed #CCC;
+            height: 300px;
+            text-align: center;
+            float: left;
+        }
+        #demo img {
+            border: 3px solid #F2F2F2;
+            display: block;
+        }
+    </style>
+</head>
+<!--
+innerHTML: 设置或获取位于对象起始和结束标签内的 HTML
+scrollHeight: 获取对象的滚动高度
+scrollLeft: 设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离
+scrollTop: 设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离
+scrollWidth: 获取对象的滚动宽度
+offsetHeight: 获取对象相对于版面或由父坐标 offsetParent 属性指定的父坐标的高度
+offsetLeft: 获取对象相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置
+offsetTop: 获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置
+offsetWidth: 获取对象相对于版面或由父坐标 offsetParent 属性指定的父坐标的宽度
+-->
+<body>
+向上滚动
+<div id="demo">
+    <div id="demo1">
+        <a href="#"><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=751083750,1257109618&fm=173&s=3A9DA14C95130E6D466127980300E09C&w=550&h=366&img.JPEG" border="0" /></a>
+        <a href="#"><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=751083750,1257109618&fm=173&s=3A9DA14C95130E6D466127980300E09C&w=550&h=366&img.JPEG" border="0" /></a>
+        <a href="#"><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=751083750,1257109618&fm=173&s=3A9DA14C95130E6D466127980300E09C&w=550&h=366&img.JPEG" border="0" /></a>
+        <a href="#"><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=751083750,1257109618&fm=173&s=3A9DA14C95130E6D466127980300E09C&w=550&h=366&img.JPEG" border="0" /></a>
+        <a href="#"><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=751083750,1257109618&fm=173&s=3A9DA14C95130E6D466127980300E09C&w=550&h=366&img.JPEG" border="0" /></a>
+        <a href="#"><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=751083750,1257109618&fm=173&s=3A9DA14C95130E6D466127980300E09C&w=550&h=366&img.JPEG" border="0" /></a>
+    </div>
+    <div id="demo2"></div>
+</div>
+ 
+<script>
+    var speed=10; //数字越大速度越慢
+    var tab=document.getElementById("demo");
+    var tab1=document.getElementById("demo1");
+    var tab2=document.getElementById("demo2");
+    tab2.innerHTML=tab1.innerHTML; //复制一份来连续
+    //tab.scrollTop=tab.scrollHeight;
+    function Marquee(){
+        if(tab2.offsetTop-tab.scrollTop<=0)//当滚动至demo1与demo2交界时
+            tab.scrollTop-=tab1.offsetHeight //demo跳到最顶端
+        else{
+            tab.scrollTop++
+        }
+    }
+    var MyMar=setInterval(Marquee,speed);
+    tab.onmouseover=function() {clearInterval(MyMar)};//鼠标移上时清除定时器达到滚动停止的目的
+    tab.onmouseout=function() {MyMar=setInterval(Marquee,speed)};//鼠标移开时重设定时器
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="localCacheScope" value="STATEMENT" />
+	</settings>
+
+	<typeAliases>		
+		<typeAlias type="com.xiaoyu.lingdian.entity.CoreAccount" alias="CoreAccount" />	
+		<typeAlias type="com.xiaoyu.lingdian.entity.CoreAttachment" alias="CoreAttachment" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.CoreFunction" alias="CoreFunction" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.CoreRegion" alias="CoreRegion" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.CoreRole" alias="CoreRole" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.BusiAdvert" alias="BusiAdvert" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.BusiInvitedBanner" alias="BusiInvitedBanner" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.BusiAgent" alias="BusiAgent" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.BusiAgentPay" alias="BusiAgentPay" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.BusiBanner" alias="BusiBanner" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.BusiCashRecord" alias="BusiCashRecord" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.BusiInvitedRelation" alias="BusiInvitedRelation" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.BusiOil" alias="BusiOil" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.BusiOrderPay" alias="BusiOrderPay" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.CoreCommissionRecord" alias="CoreCommissionRecord" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.CoreCoupon" alias="CoreCoupon" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.CoreRechargeRecord" alias="CoreRechargeRecord" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.CoreShortMessage" alias="CoreShortMessage" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.CoreSystemConfig" alias="CoreSystemConfig" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.CoreSystemSet" alias="CoreSystemSet" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.CoreUser" alias="CoreUser" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.CoreWechat" alias="CoreWechat" />
+	</typeAliases>
+
+	<plugins>
+		<plugin interceptor="com.xiaoyu.lingdian.core.mybatis.plugin.SelectCountSqlInterceptor" />
+		<plugin interceptor="com.xiaoyu.lingdian.core.mybatis.plugin.OffsetLimitInterceptor">
+			<property name="dialectClass" value="com.xiaoyu.lingdian.core.mybatis.dialect.MySQLDialect" />
+		</plugin>
+	</plugins>
+
+	<mappers>
+		<mapper resource="com/xiaoyu/lingdian/mapper/CoreAccountMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/CoreAttachmentMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/CoreFunctionMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/CoreRegionMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/CoreRoleMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/BusiAdvertMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/BusiInvitedBannerMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/BusiAgentMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/BusiAgentPayMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/BusiBannerMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/BusiCashRecordMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/BusiInvitedRelationMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/BusiOilMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/BusiOrderPayMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/CoreCommissionRecordMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/CoreCouponMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/CoreRechargeRecordMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/CoreShortMessageMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/CoreSystemConfigMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/CoreSystemSetMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/CoreUserMapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/CoreWechatMapper.xml" />
+	</mappers>
+</configuration>

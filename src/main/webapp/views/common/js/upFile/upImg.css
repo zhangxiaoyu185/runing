@@ -1,0 +1,240 @@
+/************************鍏叡 鍥剧墖鍒囧壊*******************************/
+.cutImg_div_shade {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 9991;
+}
+
+.ml-12 {
+	margin-left: 12px;
+}
+
+.cutImg_content {
+  position: fixed;
+/*   top: 50%; */
+/*   margin-top: -250px; */
+/*   height: 100%; */
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  z-index: 9992;
+  overflow: auto;
+}
+
+.cutImg_content .cutImg_img_top {
+  position: relative;
+  width: 100%;
+  overflow: auto;
+  background-color: #fff;
+  z-index: 9992;
+}
+
+.cutImg_content .cutImg_bottom {
+  position: relative;
+  width: 30%;
+  overflow: auto;
+  background-color: #fff;
+  z-index: 9992;
+  float: left;
+  margin-top: 20%;
+}
+
+.cutImg_content .cutImg_bottom .rotate_right {
+  width: 64px;
+  height: 64px;
+  background: url("./images/rotate_right.png") no-repeat;
+  -webkit-background-size: 64px 64px;
+  background-size: 64px 64px;
+  position: relative;
+  float: right;
+  margin-right: 20%;
+}
+
+.cutImg_content .cutImg_bottom .rotate_left {
+  width: 64px;
+  height: 64px;
+  background: url("./images/rotate_left.png") no-repeat;
+  -webkit-background-size: 64px 64px;
+  background-size: 64px 64px;
+  position: relative;
+  float: left;
+  margin-left: 20%;
+}
+
+
+.cutImg_content .cutImg_rotate_btn {
+  width: 100%;
+  height: 64px;
+}
+
+.cutImg_content .cutImg_bottom_btn {
+  width: 100%;
+  height: 36px;
+  margin-top: 40px;
+}
+
+.cutImg_content .cutImg_bottom .item{
+  width: 50%;
+  height: 36px;
+  float: left;
+}
+
+.cutImg_content .cutImg_bottom .item .cutImg_btn {
+  width: 80%;
+  height: 36px;
+  line-height: 36px;
+  background-color: #2586E6;
+  color: #fff;
+  border-radius: 4px;
+  margin: 0px auto;
+  text-align: center;
+  font-size: 14px;
+}
+
+/************************鍏叡 涓婁紶鍥剧墖鎺т欢*******************************/
+.upImg_bg {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 9992;
+  overflow: auto;
+}
+
+.upImg_border {
+  width: 100%;
+  /*overflow: auto;*/
+}
+
+.upImg_item {
+  width: 100%;
+  /*height: 190px;*/
+  float: left;
+  position: relative;
+  margin: 5px;
+}
+
+.upImg_preview {
+  width: 100%;
+  /*max-height: 100%;*/
+  margin: 0px auto;
+  display: block;
+
+ /*     bottom: 0px;
+    position: absolute;*/
+}
+
+.upImg_preview.upImg_small {
+  bottom: 0;
+  position: absolute;
+}
+
+
+.upImg_item .upImg_top_bar{
+  z-index: 999;
+  /*display: none;*/
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+
+.upImg_file_delete {
+  width: 35px;
+  height: 35px;
+  background: url("./images/close.png") no-repeat;
+  -webkit-background-size: 35px 35px;
+  background-size: 35px 35px;
+  position: absolute;
+  right: 0px;
+  position: absolute;
+  z-index: 9999;
+}
+
+.upImg_name {
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  background-color: #000;
+  opacity: 0.5;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: absolute;
+  bottom: 0px;
+}
+
+.upImg_btn_border {
+  width: 220px;
+  clear: both;
+  margin: 10px auto;
+}
+
+.upImg_btn_border .upImg_btn_item {
+  width: 100px;
+  height: 30px;
+  color: #fff;
+  background-color: #199E2F;
+  border-radius: 5px;
+  line-height: 30px;
+  text-align: center;
+  float: left;
+  margin: 5px;
+}
+
+.upImg_btn_border .upImg_btn_item.sureUp {
+  display: none;
+}
+
+.upImg_bottom_bar {
+  clear: both;
+  width: 250px;
+  height: 100px;
+  margin: 10px auto;
+  /*display: none;*/
+}
+
+
+.upImg_bottom_bar  .upImg_btn_item {
+  width: 100px;
+  height: 20px;
+  color: #fff;
+  background-color: #199E2F;
+  border-radius: 3px;
+  line-height: 20px;
+  text-align: center;
+  float: left;
+  margin: 5px;
+}
+
+.upImg_div {
+    width: 450px;
+    display: inline-block;
+}
+
+.upImg_flag {
+  width: 100px;
+  height: 120px;
+  background: url("./images/add_pic_btn.png") no-repeat;
+  -webkit-background-size: 100px 100px;
+  background-size: 100px 100px;
+  margin-top: 5px;
+  margin-right: 6px;
+  float: left;
+  position: relative;
+  text-align: center;
+}
+
+.input_filt {
+	opacity: 0;
+	width: 100px;
+  	height: 100px;
+}
+

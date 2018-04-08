@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<style>
+			#win{
+				position:absolute;
+				left:10px;
+				top:10px;
+				width:400px;
+				height:300px;
+				background:#ccc;
+				text-align:center;
+				line-height:300px;
+				color:#3F8B0D;
+			}
+		</style>
+		<script>
+			var doShake=function(){
+				var o=document.getElementById("win");
+				var f=[o.offsetLeft,o.offsetTop];
+				var p=['left','top'],
+				i=0;
+				 var u = setInterval(function()
+                {
+                    var s = o.style;
+                    s[p[i % 2]] = f[i % 2] + ((i++) % 4 < 2 ? -2 : 2) + 'px';
+                    if (i > 40)
+                    {
+                        clearInterval(u);
+                        s[p[0]] = f[0] + "px";
+                        s[p[1]] = f[1] + "px";
+                        i = 0;
+                    }
+                },
+                20);
+			};
+		</script>
+	</head>
+	<body>
+		<div id="win" onclick="doShake()" >请点击我！</div>
+	
+</body></html>

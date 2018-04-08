@@ -1,0 +1,47 @@
+body,li,ul{margin: 0;padding: 0;
+    list-style:none;}
+.contain{
+    margin-left: 0px;
+    height: 800px;
+    padding: 30px;
+}
+.row .index-item{
+    margin-top: 20px;
+    height: 300px;
+}
+.row .index-item .block{
+    min-width: 215px;
+    max-width: 280px;
+    height:100%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    color: #fff;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    background: #ff4400 url(../../images/index/index-card.png) no-repeat right 190px;
+}
+
+.row .index-item .block:hover{
+    opacity: 1;
+    transition: all .3s;
+    cursor: pointer;
+}
+.row .index-item .block .item{
+    width: 200px;
+    height: 50%;
+    margin: auto;
+    float: left;
+    padding-left: 15px;
+    margin-top: -5px;
+    padding-top: 20px;
+    font-size: 15px;
+    line-height: 26px;
+}
+.row .index-item .block .item .title{
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 50px;
+}

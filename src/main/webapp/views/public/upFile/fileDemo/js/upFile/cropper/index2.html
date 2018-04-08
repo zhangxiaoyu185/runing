@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A basic demo of Cropper.">
+  <meta name="keywords" content="HTML, CSS, JS, JavaScript, jQuery plugin, image cropping, image crop, image move, image zoom, image rotate, image scale, front-end, frontend, web development">
+  <meta name="author" content="Fengyuan Chen">
+  <title>Cropper</title>
+
+
+  <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="css/default.css">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="dist/cropper.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+
+  <!-- Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <!-- <h3 class="page-header">Demo:</h3> -->
+        <div class="img-container">
+          <img id="image" src="assets/img/picture.jpg" alt="Picture">
+        </div>
+      </div>
+      
+    <div class="row">
+      <div class="col-md-9 docs-buttons">
+        <!-- <h3 class="page-header">Toolbar:</h3> -->
+        
+
+        
+
+        <div class="btn-group btn-group-crop">
+          <button type="button" class="btn btn-primary" data-method="getCroppedCanvas">
+            <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;getCroppedCanvas&quot;)">
+              Get Cropped Canvas
+            </span>
+          </button>
+          
+        </div>
+
+        <!-- Show the cropped image in modal -->
+        <div class="modal fade docs-cropped" id="getCroppedCanvasModal" aria-hidden="true" aria-labelledby="getCroppedCanvasTitle" role="dialog" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+  
+              <div class="modal-body"></div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.jpg">Download</a>
+              </div>
+            </div>
+          </div>
+        </div><!-- /.modal -->
+
+        
+
+    
+      </div><!-- /.docs-toggles -->
+    </div>
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="dist/cropper.js"></script>
+    <script src="js/main2.js"></script>
+</body>
+</html>

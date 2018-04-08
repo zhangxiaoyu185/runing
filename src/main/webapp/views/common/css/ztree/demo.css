@@ -1,0 +1,26 @@
+
+/* a {color:#3C6E31;text-decoration: underline;}
+a:hover {background-color:#3C6E31;color:white;}
+input.radio {margin: 0 2px 0 8px;}
+input.radio.first {margin-left:0;}
+input.empty {color: lightgray;}
+code {color: #2f332a;}
+.highlight_red {color:#A60000;}
+.highlight_green {color:#A7F43D;}
+li {list-style: circle;font-size: 12px;}
+li.title {list-style: none;}
+ul.list {margin-left: 17px;} */
+
+div.content_wrap {width: 100%;}
+/* div.content_wrap div.left{float: left;width: 20%;}
+div.content_wrap div.right{float: right;width: 80%;} */
+div.zTreeDemoBackground {width:250px;height:400px;text-align:left;}
+
+
+div.content_wrap div.right{height:550px;border:1px solid #666;margin-left:250px;padding:5px;background:#fff;}  
+div.content_wrap div.left{width:250px;float:left;background:#fff;} 
+div.content_wrap div.clear{clear:both} 
+
+
+ul.ztree {border: 1px solid #617775;background: #fff;width:240px;height:550px;overflow-y:scroll;overflow-x:auto;}
+

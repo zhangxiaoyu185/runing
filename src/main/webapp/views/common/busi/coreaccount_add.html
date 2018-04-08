@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加账户表</title>
+<link type="text/css" rel="stylesheet" href="../css/common/base-min.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../css/common/index.css" media="all" />
+<script type="text/javascript" src="../js/jquery/jquery-1.8.3.min.js?ts=new Date()"></script>
+<script type="text/javascript" src="../js/jquery/jquery-form.js?ts=new Date()"></script>
+<script type="text/javascript" src="../js/layer/layer.js?ts=new Date()"></script>
+<script type="text/javascript" src="../../common.js"></script>
+<script type="text/javascript" src="../js/common/common.js?ts=new Date()"></script>
+<script type="text/javascript" src="../js/busi/coreaccount_add.js?ts=new Date()"></script>
+</head>
+
+<body>
+	<div class="box">
+		<ul class="list">
+			<li class="list-li">
+				<label class="leftLi">帐户名称：</label>
+				<div class="rightLi">
+					<input type="text" class="inputStyle cractName"/>
+					<span class="p-red"> *</span>
+				</div>
+			</li>
+			<li class="list-li">
+				<label class="leftLi">登录密码：</label>
+				<div class="rightLi">
+					<input type="password" class="inputStyle cractPassword" onpaste="return false" ondragenter="return false"  style="ime-mode:disabled"/>
+					<span class="p-red"> *</span>
+				</div>
+			</li>
+			<li class="list-li">
+	            <label class="leftLi">确认密码：</label>			
+	            <div class="rightLi">
+		            <input type="password" class="inputStyle surePsd" onpaste="return false" ondragenter="return false"  style="ime-mode:disabled"/>
+		            <span class="p-red"> *</span>
+	            </div>
+	        </li>
+			<li class="list-li">
+				<label class="leftLi">角色集合：</label>
+				<div class="rightLi">
+					<div class="select-box cractRoles">
+	                    <input class="select-item" data-ids="" data-values="" type="text" value="" readonly="readonly"/>
+	                    <ul class="select-ul align-left">                        
+	                    </ul>
+	                </div>
+					<span class="p-red"> *</span>
+				</div>
+			</li>
+			<li class="list-li">
+				<label class="leftLi">联系方式：</label>
+				<div class="rightLi">
+					<input type="text" class="inputStyle cractTel"/>
+				</div>
+			</li>
+			<li class="list-li">
+				<label class="leftLi">邮箱：</label>
+				<div class="rightLi">
+					<input type="text" class="inputStyle cractEmail"/>
+				</div>
+			</li>
+			<li class="list-li">
+				<label class="leftLi">备注：</label>
+				<div class="rightLi">
+					<textarea class="textAreaStyle cractRemarks"></textarea>
+				</div>
+			</li>
+			<li class="list-li">
+				<input type="button" class="buttonStyle submit" value="添加"/>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

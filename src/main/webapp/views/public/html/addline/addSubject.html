@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/addsubject.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="../../js/jquery-1.9.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <title>Document</title>
+    <style>
+        .btn_group{
+            width: 163px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+<body>
+<div class="subject-box">
+    <div class="title"><span>添加题目：</span>
+        <button type="button"  class="btn btn-danger btn-sm" id="add-subject">添加</button>
+    </div>
+    <table class="table table-bordered table-hover" id="subject-table">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>答案</th>
+            <th>分值</th>
+            <th>视频目录</th>
+            <th>视频名称</th>
+            <th>按钮</th>
+        </tr>
+        </thead>
+        <tbody style="position: relative;">
+        <tr  class="subject-item">
+            <th scope="row"> <input type="text" class="form-control num"  value="01"  style=" width: 70px;"  placeholder="编号" value="01"></th>
+            <td> <input type="text" class="form-control answer"  value="35.6元" placeholder="答案"></td>
+            <td> <input type="text" class="form-control score"  value="5分"  style=" width: 85px;"  placeholder="分值"></td>
+            <td> <input type="text" class="form-control file"  value="C/play"placeholder="目录"></td>
+            <td> <input type="text" class="form-control name"  value="儿童故事" placeholder="名称"></td>
+            <td class="btn_group" >
+                <button type="button"  class="btn btn-warning btn-sm delete-btn">删除</button>
+                <button type="button"  class="btn btn-danger btn-sm prev">上移</button>
+                <button type="button"  class="btn btn-danger btn-sm next">下移</button>
+            </td>
+        </tr>
+        <tr class="subject-item">
+            <th scope="row"> <input type="text" class="form-control num"  value="02"  style=" width: 70px;"  placeholder="编号" value="01"></th>
+            <td> <input type="text" class="form-control answer"  value="12.6元" placeholder="答案"></td>
+            <td> <input type="text" class="form-control score"  value="0分"  style=" width: 85px;"  placeholder="分值"></td>
+            <td> <input type="text" class="form-control file"  value="D/store"placeholder="目录"></td>
+            <td> <input type="text" class="form-control name"  value="消消乐" placeholder="名称"></td>
+            <td  class="btn_group" >
+                <button type="button" class="btn btn-warning btn-sm delete-btn">删除</button>
+                <button type="button"  class="btn btn-danger btn-sm  prev">上移</button>
+                <button type="button"  class="btn btn-danger btn-sm next">下移</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div><button type="button" class="btn btn-danger " id="save-btn">保存</button></div>
+</div>
+</body>
+</html>
+<script>
+    function objVal(obj, classname) {
+        return $(obj).find(classname).val();
+    }
+    $(function () {
+        var subject= '<tr class="subject-item">'
+            +'<th scope="row"><input type="text" class="form-control num"   style=" width: 70px;"  placeholder="编号"></th>'
+            +'<td> <input type="text" class="form-control answer" placeholder="答案"></td>'
+            +'<td> <input type="text" class="form-control score" style=" width: 85px;"  placeholder="分值"></td>'
+            +'<td> <input type="text" class="form-control file" placeholder="目录"></td>'
+            +'<td> <input type="text" class="form-control name"  placeholder="名称"></td>'
+            +'<td class="btn_group" > '
+            +'<button type="button" class="btn btn-warning btn-sm delete-btn">删除</button>'
+            +'<button type="button"  class="btn btn-danger btn-sm prev">上移</button>'
+            +'<button type="button"  class="btn btn-danger btn-sm next">下移</button>'
+            +'</td>'
+            +'</tr>';
+        var sum='',arr=[];
+        $("#add-subject").click(function () {
+            $("#subject-table tbody").append(subject);
+            /*对新增元素添加绑定事件*/
+            $(".delete-btn").off().on("click",function () {
+                if(confirm("确认删除吗？")){
+                    $(this).parents("tr").remove();
+                }
+            });
+
+            $(".next").off().on("click",function () {
+                $(this).parents("tr").next("tr").after($(this).parents("tr"));
+            });
+            $(".prev").off().on("click",function () {
+                $(this).parents("tr").prev("tr").before($(this).parents("tr"));
+            });
+
+        });
+
+        $("#save-btn").click(function () {
+            var flag = false;
+            $(".subject-item").each(function () {
+                if(objVal(this, ".num")==""||objVal(this, ".answer")==""||objVal(this, ".score")==""||objVal(this, ".file")==""||objVal(this, ".name")==""){
+                    alert("请将输入框填写完整！");
+                    flag = true;
+                    return false;
+                }
+                var num=$(this).find(".num").val();
+                var answer=$(this).find(".answer").val();
+                var score=$(this).find(".score").val();
+                var file=$(this).find(".file").val();
+                var name=$(this).find(".name").val();
+                var json="{num:"+num+",answer:"+answer+",score:"+score+",file:"+file+",name:"+name+"}";
+                arr.push(json)
+            });
+            if(flag){
+                return;
+            }
+            //执行添加
+            console.log(arr);
+        });
+        $(".delete-btn").on("click",function () {
+            if(confirm("确认删除吗？")){
+                $(this).parents("tr").remove();
+            }
+        });
+
+        $(".next").on("click",function () {
+            $(this).parents("tr").next("tr").after($(this).parents("tr"));
+        });
+        $(".prev").on("click",function () {
+            $(this).parents("tr").prev("tr").before($(this).parents("tr"));
+        });
+    });
+</script>

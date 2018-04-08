@@ -1,0 +1,10 @@
+body,div,ul,li{margin:0;padding:0;}
+
+.fullSlide{ position:relative;height:350px;background:#f8f8f8; margin:0 auto; }
+.fullSlide .bd{position:relative;z-index:0;width:100%;height:350px;overflow:hidden}
+.fullSlide .bd div{position:absolute;top:0;left:50%;margin-left:-960px;height:350px;width:1920px;}
+.fullSlide .bd li img{width:1920px;height:350px;vertical-align:top;background:url(../images/tmp/1.jpg) no-repeat center center;} 
+.fullSlide .hd{position:relative;z-index:1; margin-top:-30px; height:30px; line-height:30px;text-align:center;}
+.fullSlide .hd ul{ text-align:center;display:inline-block;background:url(../images/triggers.png) repeat-x;height:24px;border-radius:12px;padding:0 8px;}
+.fullSlide .hd ul li{cursor:pointer;display:inline-block; *display:inline; zoom:1; width:10px; height:10px; margin:7px 5px; background:url(../images/icoCircle.png) 0 0; overflow:hidden;font-size:0;}
+.fullSlide .hd ul .on{background-position:-20px 0;}

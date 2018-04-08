@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>upload</title>
+    <script type="text/javascript" src="js/jquery/jquery-1.8.3.min.js?ts=new Date()"></script>
+    <script type="text/javascript" src="js/layer/layer.js"></script>
+    <script type="text/javascript" src="js/common/common.js?ts=new Date()"></script>
+    <!-- 上传控件 -->
+    <link rel="stylesheet" type="text/css" href="js/upFile/cropper/dist/cropper.css"/>
+    <link rel="stylesheet" type="text/css" href="js/upFile/cropper/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="js/upFile/upImg.css"/>
+    <script type='text/javascript' src='js/upFile/upImg//js/LocalResizeIMG.js'></script>
+    <script type="text/javascript" src="js/upFile/cropper/dist/cropper.js"></script>
+    <script type="text/javascript" src="js/upFile/upImg.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            upImgItem.changeShow('img_upload_pic', 'crgdeIcon', "170704205818kKGJ", 88, 30, '2', '2', '30X88', function (widget) {
+                var str = "cratmUuid=" + $(widget).attr('data-uuid');
+                getOData(str, "coreAttachment/delete", {
+                    fn: function (oData) {
+                        widget.attr('data-uuid', "");
+                    },
+                    fnerr: function (oData) {
+                        alert(oData.errMsg);
+                    }
+                });
+            });
+            var upImg = upImgItem.init('input_filt');
+
+            $('.input_filt').on('change', function () {
+                upImg.show(this,
+                    {
+                        url: urlfile + "coreAttachment/stream/upload",
+                        width: $(this).parent().attr('data-width'),
+                        height: $(this).parent().attr('data-height'),
+                        param: {
+                            cratmType: $(this).parent().attr('data-cratmType'),
+                            cratmDir: $(this).parent().attr('data-cratmDir')
+                        }
+                    },
+                    function (returnImagData, ajaxResult, widget) {//图片数据， 上传图片后返回的ajax数据
+                        if (ajaxResult.success) {
+                            widget.attr('data-uuid', ajaxResult.data);
+                        } else {
+                            alert(ajaxResult.errMsg);
+                        }
+
+                    }, function (widget) {
+                        var str = "cratmUuid=" + widget.attr('data-uuid');
+                        getOData(str, "coreAttachment/delete", {
+                            fn: function (oData) {
+                                widget.attr('data-uuid', "");
+                            },
+                            fnerr: function (oData) {
+                                alert(oData.errMsg);
+                            }
+                        });
+                    }
+                );
+            });
+
+            $(".submit").on("click", function () {
+                Modify();
+            });
+        });
+
+        //提交
+        function Modify() {
+            alert($(".crgdeIcon").attr('data-uuid'));
+        }
+    </script>
+</head>
+
+<body>
+<div class="box">
+    <ul class="list">
+        <li class="list-li">
+            <label class="leftLi">img：</label>
+            <div class="rightLi">
+                <div id="img_upload_pic" class="upImg_div">
+                </div>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+
+        <li class="list-li">
+            <input type="button" class="buttonStyle submit" value="获取返回UUID值"/>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

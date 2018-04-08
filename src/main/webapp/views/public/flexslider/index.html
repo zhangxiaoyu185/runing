@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="图片轮播，图片切换，焦点图"/>
+    <meta name="description" content="这是一个基于jquery的图片轮播效果演示页"/>
+    <title>flexslider图片轮播、文字图片相结合滑动切换效果</title>
+    <link rel="stylesheet" type="text/css" href="flexslider.css"/>
+    <style type="text/css">
+        .red {
+            color: red;
+        }
+    </style>
+    <script src="jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="jquery.flexslider-min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".flexslider").flexslider({
+                animation: 'slide',
+                slideshowSpeed: 3000, //展示时间间隔ms
+                animationSpeed: 300, //滚动时间ms
+                manualControls: ".div1 li",
+                pauseOnHover: false,
+                animationLoop: true,
+                start: function (slider) {
+                },
+                before: function (slider) {
+                },
+                after: function (slider) {
+                    var currentSlide = slider.currentSlide + 1;
+                    $(".a").removeClass("red");
+                    $("#sp" + currentSlide).addClass("red");
+                    console.log(slider);
+                },
+                end: function (slider) {
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="main">
+    <div class="flexslider">
+        <ul class="slides">
+            <li><img src="images/s1.jpg"/></li>
+            <li><img src="images/s2.jpg" /></li>
+            <li><img src="images/s3.jpg" /></li>
+            <li><img src="images/s4.jpg" /></li>
+        </ul>
+    </div>
+    <div class="div1">
+        <li id="sp1" class="red a">我是1</li>
+        <li id="sp2" class="a">我是2</li>
+        <li id="sp3" class="a">我是3</li>
+        <li id="sp4" class="a">我是4</li>
+    </div>
+</div>
+</body>
+</html>

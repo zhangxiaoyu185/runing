@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="x5-orientation" content="portrait">
+    <title></title>
+</head>
+<body>
+<img id="img1" src="1.jpg" style="height: 500px;"/>
+<div id="div1">
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+    $(function () {
+        orient();
+    });
+
+    function orient() {
+        if (window.orientation == 0 || window.orientation == 180) {
+            $('#img1').hide();
+            $('#div1').show();
+            //alert('竖屏');
+            //orientation = 'portrait';
+            return false;
+        } else if (window.orientation == 90 || window.orientation == -90) {
+            $('#div1').hide();
+            $('#img1').show();
+            // alert('横屏');
+            //       orientation = 'landscape';
+            return false;
+        } else {
+            if (window.innerWidth > window.innerHeight) {
+                $('#div1').hide();
+                $('#img1').show();
+                return false;
+            }
+        }
+    }
+
+    /* 在用户变化屏幕显示方向的时候调用*/
+    $(window).bind('orientationchange', function (e) {
+        orient();
+    });
+</script>

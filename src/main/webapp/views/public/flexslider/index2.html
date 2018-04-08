@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="图片轮播，图片切换，焦点图"/>
+    <meta name="description" content="这是一个基于jquery的图片轮播效果演示页"/>
+    <title>flexslider图片轮播、文字图片相结合滑动切换效果</title>
+    <link rel="stylesheet" type="text/css" href="flexslider.css"/>
+    <style type="text/css">
+        .slides h4 {
+            height: 42px;
+            line-height: 42px;
+            font-size: 22px;
+            opacity: .8;
+        }
+
+        .slides p {
+            line-height: 22px;
+            font-size: 16px
+        }
+    </style>
+    <script src="jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="jquery.flexslider-min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".flexslider").flexslider();
+        });
+    </script>
+</head>
+
+<body>
+<div id="main">
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="images/s1.jpg" alt=""/>
+                <div style="position:absolute; top:70px; right:200px;">
+                    <h4>FlexSlider!</h4>
+                    <p>多功能图片切换效果</p>
+                </div>
+            </li>
+            <li>
+                <img src="images/s2.jpg" alt=""/>
+                <div style="position:absolute; bottom:0; right:0; width:100%; height:42px; background:#000; text-indent:20px; color:#fff">
+                    <h4><a href="http://www.helloweba.com/view-blog-265.html" target="_blank">jquery
+                        flexslider滑块幻灯片插件图片和文字结合焦点图片切换</a></h4>
+                </div>
+            </li>
+            <li>
+                <img src="images/s3.jpg" alt=""/>
+                <div style="position:absolute; top:70px; right:65px; width:420px; padding:10px; background:#333; opacity:.8; color:#fff">
+                    <h4>FlexSlider</h4>
+                    <p>FlexSlider是一款基于的jQuery内容滚动插件。它能让你轻松的创建内容滚动的效果，具有非常高的可定制性。它是将UL列表转换成内容滚动的列表，可以自动播放，或者使用导航按钮和键盘来控制。<a
+                            href="http://www.woothemes.com/flexslider/" target="_blank" rel="nofollow">FlexSlider官网</a>
+                        <a href="http://www.helloweba.com/view-blog-265.html" target="_blank">中文使用教程</a></p>
+                </div>
+            </li>
+            <li>
+                <img src="images/s4.jpg" alt=""/>
+                <div style="position:absolute; top:20px; left:200px; width:520px;">
+                    <h4>FlexSlider</h4>
+                    <p>FlexSlider is a free responsive jQuery slider toolkit. Supported in all major browsers with
+                        custom navigation options and touch swipe support.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

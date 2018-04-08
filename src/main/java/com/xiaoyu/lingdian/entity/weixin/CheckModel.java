@@ -1,0 +1,58 @@
+package com.xiaoyu.lingdian.entity.weixin;
+
+
+public class CheckModel extends ErrorCodeModel {
+	
+	/**
+	 * 微信加密签名
+	 */
+	private String signature;
+	
+	/**
+	 * 时间戳
+	 */
+	private Long timestamp;
+	
+	/**
+	 * 随机数
+	 */
+	private Long nonce;
+	
+	/**
+	 * 随机字符串
+	 */
+	private String echostr;
+
+	public String getSignature() {
+		return signature;
+	}
+
+	public void setSignature(String signature) {
+		this.signature = signature;
+	}
+
+	public Long getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Long timestamp) {
+		this.timestamp = timestamp;
+	}
+
+	public Long getNonce() {
+		return nonce;
+	}
+
+	public void setNonce(Long nonce) {
+		this.nonce = nonce;
+	}
+
+	public String getEchostr() {
+		return echostr;
+	}
+
+	public void setEchostr(String echostr) {
+		this.echostr = echostr;
+	}
+
+}

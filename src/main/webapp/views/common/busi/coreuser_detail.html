@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>详情用户表</title>
+    <link type="text/css" rel="stylesheet" href="../css/common/base-min.css" media="all"/>
+    <link type="text/css" rel="stylesheet" href="../css/common/index.css" media="all"/>
+    <script type="text/javascript" src="../js/jquery/jquery-1.8.3.min.js?ts=new Date()"></script>
+    <script type="text/javascript" src="../js/jquery/jquery-form.js?ts=new Date()"></script>
+    <script type="text/javascript" src="../js/layer/layer.js?ts=new Date()"></script>
+    <script type="text/javascript" src="../../common.js"></script>
+    <script type="text/javascript" src="../js/common/common.js?ts=new Date()"></script>
+    <script type="text/javascript" src="../js/busi/coreuser_detail.js?ts=new Date()"></script>
+</head>
+<body>
+<div class="box">
+    <ul class="list">
+        <li class="list-li">
+            <label class="leftLi">持卡人姓名/公司名：</label>
+            <div class="rightLi">
+                <label class="crusrName"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">用户头像：</label>
+            <div class="rightLi">
+                <img class="crusrWxHeadimgurl"/>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">手机号码：</label>
+            <div class="rightLi">
+                <label class="crusrMobile"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">创建日期：</label>
+            <div class="rightLi">
+                <label class="crusrCdate"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">修改日期：</label>
+            <div class="rightLi">
+                <label class="crusrUdate"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">性别：</label>
+            <div class="rightLi">
+                <label class="crusrGender"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">备注：</label>
+            <div class="rightLi">
+                <label class="crusrRemarks"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">授权OPENID：</label>
+            <div class="rightLi">
+                <label class="crusrOpenid"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">用户UnionID：</label>
+            <div class="rightLi">
+                <label class="crusrUnionid"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">邀请二维码：</label>
+            <div class="rightLi">
+                <img class="crusrInvitedCode_preimg"/>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">身份证号：</label>
+            <div class="rightLi">
+                <label class="crusrIdCard"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">银行账号名称：</label>
+            <div class="rightLi">
+                <label class="crusrAccountName"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">银行账号：</label>
+            <div class="rightLi">
+                <label class="crusrAccountNo"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">银行开户行：</label>
+            <div class="rightLi">
+                <label class="crusrBankName"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">行驶证照片正面：</label>
+            <div class="rightLi">
+                <img class="crusrDrivingPic_preimg"/>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">行驶证照片反面：</label>
+            <div class="rightLi">
+                <img class="crusrDrivingPicOther_preimg"/>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">车牌：</label>
+            <div class="rightLi">
+                <label class="crusrCarNo"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">行驶证号：</label>
+            <div class="rightLi">
+                <label class="crusrDrivingNo"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">营业执照号：</label>
+            <div class="rightLi">
+                <label class="crusrBusinessNo"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">身份：</label>
+            <div class="rightLi">
+                <label class="crusrType"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">本周佣金总额：</label>
+            <div class="rightLi">
+                <label class="crusrWeekIncome"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">累积佣金总额：</label>
+            <div class="rightLi">
+                <label class="crusrTotalIncome"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">解冻佣金总额：</label>
+            <div class="rightLi">
+                <label class="crusrEnableIncome"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">冻结佣金总额：</label>
+            <div class="rightLi">
+                <label class="crusrFrozenIncome"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">下级成员数量：</label>
+            <div class="rightLi">
+                <label class="crusrDownCount"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">邀请人：</label>
+            <div class="rightLi">
+                <label class="crusrInviter"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">最后登录时间：</label>
+            <div class="rightLi">
+                <label class="crusrLastTime"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">邀请码：</label>
+            <div class="rightLi">
+                <label class="crusrInviteCode"></label>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">所属代理商平台：</label>
+            <div class="rightLi">
+                <label class="crusrAgent"></label>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

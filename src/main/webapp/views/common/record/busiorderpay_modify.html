@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>修改支付记录表</title>
+    <link type="text/css" rel="stylesheet" href="../css/common/base-min.css" media="all"/>
+    <link type="text/css" rel="stylesheet" href="../css/common/index.css" media="all"/>
+    <script type="text/javascript" src="../js/jquery/jquery-1.8.3.min.js?ts=new Date()"></script>
+    <script type="text/javascript" src="../js/jquery/jquery-form.js?ts=new Date()"></script>
+    <script type="text/javascript" src="../js/layer/layer.js?ts=new Date()"></script>
+    <script type="text/javascript" src="../../common.js"></script>
+    <script type="text/javascript" src="../js/common/common.js?ts=new Date()"></script>
+    <script type="text/javascript" src="../js/record/busiorderpay_modify.js?ts=new Date()"></script>
+</head>
+
+<body>
+<div class="box">
+    <ul class="list">
+        <li class="list-li">
+            <label class="leftLi">交易单号：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyOrder"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">客户端地址：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyClientIp"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">支付渠道：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyPayChannel"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">交易类型：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyTradeType"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">用户标识：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyUser"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">同步通知地址：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyReturnUrl"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">支付返回参数（返回用于前端页面支付参数）：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyPayParams"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">业务结果：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyResultCode"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">错误代码：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyErrorCode"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">错误描述：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyErrorMsg"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">第三方单号：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyOutTradeNo"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">支付结果：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyPayResult"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">支付时间：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyPayDate"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">通知时间：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyNotifyDate"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">创建时间：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyCdate"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <label class="leftLi">更新时间：</label>
+            <div class="rightLi">
+                <input type="text" class="inputStyle bsopyUdate"/>
+                <span class="p-red"> *</span>
+            </div>
+        </li>
+        <li class="list-li">
+            <input type="button" class="buttonStyle submit" value="修改"/>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

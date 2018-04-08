@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.json.js"></script>
+<script type="text/javascript" src="../js/jquery-form.js"></script>
+<script type="text/javascript" src="../../common.js"></script>
+<script type="text/javascript">
+function sumbitCreate(){
+	var fatherData = new Array();
+	
+    var sonData1 = new Array();
+    for (var i=1; i<6; i++){
+        var element = {};
+        element.name=$("#firstSonMenuName"+i).val();
+        element.type="view";
+        element.url=$("#firstSonMenuUrl"+i).val();
+        if($.trim(element.name) != "" && $.trim(element.url) != "") {
+        	sonData1[i-1]=element;
+        }
+    }
+    var father1 = {};
+    father1.sub_button = sonData1;
+    father1.name=$("#fateherMenuName1").val();
+    if($.trim(father1.name) != "") {
+    	fatherData[0] = father1;
+    }
+    
+    var sonData2 = new Array();
+    for (var i=1; i<6; i++){
+        var element = {};
+        element.name=$("#secondSonMenuName"+i).val();
+        element.type="view";
+        element.url=$("#secondSonMenuUrl"+i).val();
+        if($.trim(element.name) != "" && $.trim(element.url) != "") {
+        	sonData2[i-1]=element;
+        }
+    }
+    var father2 = {};
+    father2.sub_button = sonData2;
+    father2.name=$("#fateherMenuName2").val();
+    if($.trim(father2.name) != "") {
+    	fatherData[1] = father2;
+    }
+    
+    var sonData3 = new Array();
+    for (var i=1; i<6; i++){
+        var element = {};
+        element.name=$("#thirdSonMenuName"+i).val();
+        element.type="view";
+        element.url=$("#thirdSonMenuUrl"+i).val();
+        if($.trim(element.name) != "" && $.trim(element.url) != "") {
+        	sonData3[i-1]=element;
+        }
+    }
+    var father3 = {};
+    father3.sub_button = sonData3;
+    father3.name=$("#fateherMenuName3").val();
+    if($.trim(father3.name) != "") {
+    	fatherData[2] = father3;
+    }
+    
+    var jsondata = $.toJSON(fatherData);
+    $("#content").html(jsondata);
+    
+    $.ajax({
+		url : urlfile+'weixin/getMenu',
+		data:{
+			jsonMenu:$("#content").html()
+		},
+		dataType:'html',
+		type : 'POST',
+		timeout : 30000,
+		error : function() {
+			alert('提示','响应超时，请刷新页面！');
+		},
+		success : function(data) {
+			alert(data.data);
+		}
+	});
+}
+</script> 
+</head>  
+<body>
+	父菜单1name：<input type="text" id="fateherMenuName1" /><br />
+		&nbsp;&nbsp;&nbsp;&nbsp;子菜单1:name:<input type="text" id="firstSonMenuName1" />
+		&nbsp;&nbsp;&nbsp;&nbsp;url:<input type="text" id="firstSonMenuUrl1" />
+		<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;子菜单2:name:<input type="text" id="firstSonMenuName2" />
+		&nbsp;&nbsp;&nbsp;&nbsp;url:<input type="text" id="firstSonMenuUrl2" />
+		<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;子菜单3:name:<input type="text" id="firstSonMenuName3" />
+		&nbsp;&nbsp;&nbsp;&nbsp;url:<input type="text" id="firstSonMenuUrl3" />
+		<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;子菜单4:name:<input type="text" id="firstSonMenuName4" />
+		&nbsp;&nbsp;&nbsp;&nbsp;url:<input type="text" id="firstSonMenuUrl4" />
+		<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;子菜单5:name:<input type="text" id="firstSonMenuName5" />
+		&nbsp;&nbsp;&nbsp;&nbsp;url:<input type="text" id="firstSonMenuUrl5" />
+		<br />
+	父菜单2name：<input type="text" id="fateherMenuName2" /><br />
+		&nbsp;&nbsp;&nbsp;&nbsp;子菜单1:name:<input type="text" id="secondSonMenuName1" />
+		&nbsp;&nbsp;&nbsp;&nbsp;url:<input type="text" id="secondSonMenuUrl1" />
+		<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;子菜单2:name:<input type="text" id="secondSonMenuName2" />
+		&nbsp;&nbsp;&nbsp;&nbsp;url:<input type="text" id="secondSonMenuUrl2" />
+		<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;子菜单3:name:<input type="text" id="secondSonMenuName3" />
+		&nbsp;&nbsp;&nbsp;&nbsp;url:<input type="text" id="secondSonMenuUrl3" />
+		<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;子菜单4:name:<input type="text" id="secondSonMenuName4" />
+		&nbsp;&nbsp;&nbsp;&nbsp;url:<input type="text" id="secondSonMenuUrl4" />
+		<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;子菜单5:name:<input type="text" id="secondSonMenuName5" />
+		&nbsp;&nbsp;&nbsp;&nbsp;url:<input type="text" id="secondSonMenuUrl5" />
+		<br />
+	父菜单3name：<input type="text" id="fateherMenuName3" /><br />
+		&nbsp;&nbsp;&nbsp;&nbsp;子菜单1:name:<input type="text" id="thirdSonMenuName1" />
+		&nbsp;&nbsp;&nbsp;&nbsp;url:<input type="text" id="thirdSonMenuUrl1" />
+		<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;子菜单2:name:<input type="text" id="thirdSonMenuName2" />
+		&nbsp;&nbsp;&nbsp;&nbsp;url:<input type="text" id="thirdSonMenuUrl2" />
+		<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;子菜单3:name:<input type="text" id="thirdSonMenuName3" />
+		&nbsp;&nbsp;&nbsp;&nbsp;url:<input type="text" id="thirdSonMenuUrl3" />
+		<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;子菜单4:name:<input type="text" id="thirdSonMenuName4" />
+		&nbsp;&nbsp;&nbsp;&nbsp;url:<input type="text" id="thirdSonMenuUrl4" />
+		<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;子菜单5:name:<input type="text" id="thirdSonMenuName5" />
+		&nbsp;&nbsp;&nbsp;&nbsp;url:<input type="text" id="thirdSonMenuUrl5" />
+		<br />
+	<input type="button" onclick="sumbitCreate()" value="提交" />
+	<div id="content"></div>
+</body>
+  
+</html>

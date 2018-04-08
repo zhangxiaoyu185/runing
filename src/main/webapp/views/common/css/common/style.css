@@ -1,0 +1,62 @@
+body {
+	margin: 0px;
+}
+/* center.html */
+.flow-hidden{
+	overflow:hidden;
+}
+/* welcome.html */
+.h1-center {
+	margin-top:25%;
+	text-align:center;
+}
+/* top.html */
+/* .STYLE1 {
+	font-size: 12px;
+	color: #FFFFFF;
+} */
+.STYLE2 {
+	font-size: 9px
+}
+/* .STYLE3 {
+	color: #033d61;
+	font-size: 12px;
+	text-decoration:none; 
+} */
+/*left.html*/
+.STYLE1 {
+  	font-size: 12px;
+  	color: #FFFFFF;
+}
+.STYLE3 {
+  	font-size: 12px;
+  	color: #033d61;
+  	text-decoration:none; 
+  	cursor:pointer;
+}
+.STYLE5 {
+  	display: inline-block;
+  	display:-moz-inline-stack;zoom:1;*display:inline;
+ 	width:100%;
+}
+.menu_title span {
+  	font-weight: bold;
+  	left: 3px; 
+  	color: #ffffff; 
+  	position: relative; 
+  	top: 2px; 
+}
+.menu_title2 span {
+	font-weight: bold; 
+	left: 3px; 
+	color: #ffcc00;
+	position: relative; 
+	top: 2px;
+}
+/* middle.html */
+.navPoint { 
+	color: white;
+	cursor: hand; 
+	font-weight: Webdings; 
+	font-size: 9pt;
+} 

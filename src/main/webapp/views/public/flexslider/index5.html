@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="图片轮播，图片切换，焦点图"/>
+    <meta name="description" content="这是一个基于jquery的图片轮播效果演示页"/>
+    <title>flexslider图片轮播、文字图片相结合滑动切换效果</title>
+    <link rel="stylesheet" type="text/css" href="flexslider.css"/>
+    <style type="text/css">
+        .red {
+            color: red;
+        }
+    </style>
+    <script src="jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="jquery.flexslider-min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#carousel').flexslider({
+                animation: "slide",
+                animationLoop: true,
+                slideshowSpeed: 3000, //展示时间间隔ms
+                animationSpeed: 300, //滚动时间ms
+                slideshow: false,
+                itemWidth: 180,
+                itemMargin: 5,
+                directionNav: false,
+                asNavFor: '#slider'
+            });
+
+            $('#slider').flexslider({
+                animation: "slide",
+                animationLoop: true,
+                slideshowSpeed: 3000, //展示时间间隔ms
+                animationSpeed: 300, //滚动时间ms
+                after: function (slider) {
+                    var currentSlide = slider.currentSlide + 1;
+                    $(".a").removeClass("red");
+                    $("#sp" + currentSlide).addClass("red");
+                    console.log(slider);
+                },
+                sync: "#carousel"
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div id="main">
+        <div id="slider" class="flexslider">
+            <ul class="slides">
+                <li><img src="images/sc1.jpg"/></li>
+                <li><img src="images/sc2.jpg"/></li>
+                <li><img src="images/sc3.jpg"/></li>
+                <li><img src="images/sc4.jpg"/></li>
+            </ul>
+        </div>
+        <div id="carousel" class="flexslider">
+            <ul class="slides">
+                <li id="sp1" class="red a">标题1</li>
+                <li id="sp2" class="a">标题2</li>
+                <li id="sp3" class="a">标题3</li>
+                <li id="sp4" class="a">标题4</li>
+            </ul>
+        </div>
+
+</div>
+</body>
+</html>

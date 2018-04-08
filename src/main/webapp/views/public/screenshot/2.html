@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>无标题文档</title>
+    <style>
+        .abc{ height:446px; border:1px solid #000; margin:0 auto}
+        @media screen and (min-width: 1920px) {
+            .abc {width: 1920px}
+        }
+        /* css 注释说明：设置了浏览器宽度不小于1201px时 abc 显示1200px宽度 */
+
+        @media screen and (max-width: 1366px) {
+            .abc {width: 1366px}
+        }
+        /* 设置了浏览器宽度不大于1200px时 abc 显示900px宽度 */
+
+        @media screen and (max-width: 1024px) {
+            .abc {width: 1024px;}
+        }
+        /* 设置了浏览器宽度不大于900px时 abc 显示200px宽度 */
+
+        @media screen and (max-width: 500px) {
+            .abc {width: 100px;}
+        }
+        /* 设置了浏览器宽度不大于500px时 abc 显示100px宽度 */
+
+    </style>
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+</head>
+<body>
+<img class="abc" src="file:///D:\1.png" />
+</body>
+</html>

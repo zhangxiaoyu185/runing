@@ -1,0 +1,111 @@
+/* CSS Document */
+body{
+	background:#FFF;
+	margin:0;
+}
+.STYLE1 {font-size: 12px}
+.STYLE3 {font-size: 12px; font-weight: bold;}
+.STYLE4 {
+  color: #03515d;
+  font-size: 12px;
+  text-decoration:none; 
+  cursor:pointer;
+}
+.box{
+	padding:0 3px;
+	width:100%;
+}
+.margin-left{
+	margin-left:10%;
+}
+.fontbig{
+	font-size:14px;
+}
+
+.list{
+	border: 1px solid #000;
+	padding:20px;
+	width:100%;
+	font-size:14px;
+	line-height:24px;
+}
+.list-li{
+	margin:20px 0px;
+	text-align:center;
+}
+.leftLi{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	width:100px;
+	text-align:left;
+	vertical-align: top;
+}
+.rightLi{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	width:450px;
+	text-align:left;
+}
+.textAreaStyle{
+	width:400px;
+	height:100px;
+}
+.inputStyle{
+	width:400px;
+	height:24px;
+}
+.buttonStyle{
+	width:400px;
+	height:40px;
+}
+.buttonStyle2{
+	width:200px;
+	height:40px;
+}
+.align-top{
+	vertical-align:top;
+}
+.uploadFile{
+	display:none;
+}
+.show_box{
+	width:100px; 
+	height:100px; 
+	display:none;
+	margin:10px; 
+	border:1px solid red;
+}
+.searchbox{
+	text-align:center;
+	margin:10px 0;
+}
+.inputsearch{
+	width:200px;
+}
+.searchbtn{
+	cursor:pointer;
+}
+.resetbtn{
+	cursor:pointer;
+}
+.refreshbtn{
+	cursor:pointer;
+}
+.ll{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	width:400px;
+	text-align:left;
+}
+.rr{
+	display:inline-block;
+	display:-moz-inline-stack;zoom:1;*display:inline;
+	width:40px;
+	text-align:center;
+}
+
+.select-box { display:inline-block;width:400px; position:relative; font-size:14px;background:#fff;}
+.select-item {cursor:pointer; display:block; line-height:20px;color:#000; width:400px; height:24px; overflow:hidden;border:1px solid #828282; padding:12px 10px;}
+.select-ul {width:400px; position:absolute; left:0; top:24px; border:1px solid #828282; background:#fff; overflow: hidden;display:none; background:#ebebeb; z-index:999;}
+.select-ul li {display:block;height:30px;overflow:hidden;line-height:30px;width:100%;cursor:pointer;}
+.select-hover {background:#ccc;}

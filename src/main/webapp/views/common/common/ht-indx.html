@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>数据统计</title>
+    <script type="text/javascript" src="../js/jquery/jquery-1.9.1.min.js?ts=new Date()"></script>
+    <script type="text/javascript" src="../js/jquery/jquery-form.js?ts=new Date()"></script>
+    <script type="text/javascript" src="../js/layer/layer.js?ts=new Date()"></script>
+    <script type="text/javascript" src="../../common.js"></script>
+    <script type="text/javascript" src="../js/common/common.js?ts=new Date()"></script>
+    <link rel="stylesheet" href="../css/index/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/index/ht-index.css">
+    <script src="../js/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/common/ht-index.js"></script>
+    <style>
+        .row {
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="contain">
+    <!--优惠券：-->
+    <div class="row">
+        <div class="index-item col-lg-3 col-md-6">
+            <div class="block">
+                <ul class="item">
+                    <li class="title">优惠券系统发送</li>
+                    <li>
+                        <div id="sysYUseCount">已使用数量：</div>
+                        <div id="sysYUseSum">已使用金额：</div>
+                    </li>
+                    <li>
+                        <div id="sysKUseCount">可使用数量：</div>
+                        <div id="sysKUseSum">可使用金额：</div>
+                    </li>
+                    <li>
+                        <div id="sysWUseCount">未分配数量：</div>
+                        <div id="sysWUseSum">未分配金额：</div>
+                    </li>
+                    <li>
+                        <div id="sysYGUseCount">已过期数量：</div>
+                        <div id="sysYGUseSum">已过期金额：</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="index-item col-lg-3 col-md-6">
+            <div class="block">
+                <ul class="item">
+                    <li class="title">优惠券手动发送</li>
+                    <li>
+                        <div id="manualYUseCount">已使用数量：</div>
+                        <div id="manualYUseSum">已使用金额：</div>
+                    </li>
+                    <li>
+                        <div id="manualKUseCount">可使用数量：</div>
+                        <div id="manualKUseSum">可使用金额：</div>
+                    </li>
+                    <li>
+                        <div id="manualWUseCount">未分配数量：</div>
+                        <div id="manualWUseSum">未分配金额：</div>
+                    </li>
+                    <li>
+                        <div id="manualYGUseCount">已过期数量：</div>
+                        <div id="manualYGUseSum">已过期金额：</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--充值-->
+        <div class="index-item col-lg-3 col-md-6">
+            <div class="block" style="background-color:#669f00;">
+                <ul class="item">
+                    <li class="title">充值成功</li>
+                    <li>
+                        <div id="dayRecharge">今日充值：</div>
+                        <div id="monthRecharge">当月充值：</div>
+                        <div id="totalRecharge">历史充值总额：</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--佣金-->
+        <div class="index-item col-lg-3 col-md-6">
+            <div class="block" style="background-color:#1eafe3;">
+                <ul class="item">
+                    <li class="title">佣金</li>
+                    <li>
+                        <div id="dayCommission">当天佣金：</div>
+                        <div id="monthCommission">当月佣金：</div>
+                        <div id="totalCommission">历史佣金总额：</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--提现-->
+        <div class="index-item col-lg-3 col-md-6">
+            <div class="block"  style="background-color:#58c59f;">
+                <ul class="item">
+                    <li class="title">提现成功</li>
+                    <li>
+                        <div id="dayCash">当天提现：</div>
+                        <div id="monthCash">当月提现：</div>
+                        <div id="totalCash">历史提现总额：</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--充值:-->
+    <!--    <div class="row">
+            <div class="index-item col-lg-3 col-md-6">
+                <div class="block">
+                    <ul class="item">
+                        <li class="title">充值</li>
+                        <li><div>今日充值:10000</div><div>当月充值:10000</div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="index-item col-lg-4 col-md-6">
+                <div class="block" style="background:#669f00;">
+                    <ul class="item">
+                        <li class="title">佣金</li>
+                        <li><div>优惠券数量:100</div><div>金额:1000元</div><div>金额:1000元</div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>-->
+    <!--充值:-->
+    <!--    <div class="row">
+            <div class="index-item col-lg-4 col-md-6">
+                <div class="block">
+                    <ul class="item">
+                        <li class="title">充值</li>
+                        <li><div>今日充值:10000</div><div>当月充值:10000</div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="index-item col-lg-4 col-md-6">
+                <div class="block" style="background:#669f00;">
+                    <ul class="item">
+                        <li class="title">系统发送</li>
+                        <li><div>数量:100</div><div>金额:1000元</div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="index-item col-lg-4 col-md-6">
+                <div class="block" style="background:#669f00;">
+                    <ul class="item">
+                        <li>系统发送</li>
+                        <li><div>数量:100</div><div>金额:1000元</div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>-->
+</div>
+</body>
+</html>
+<script>
+</script>
+

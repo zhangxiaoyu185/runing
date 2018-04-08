@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>单个上传</title>
+ 
+<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery-form.js"></script>
+<script type="text/javascript" src="../../common.js"></script>
+<script type="text/javascript">
+	//获取父页面addOrUpd的值，判断新增还是修改
+	var parentWin = window.parent;
+	var addOrUpd=parentWin.document.getElementById("addOrUpd").value;
+	var crraeUuid=parentWin.document.getElementById("crraeUuid").value;
+	$(".cratmBusUuid").val(crraeUuid);
+	var cratmUuid=parentWin.document.getElementById("cratmUuid").value;
+	$(".cratmUuid").val(cratmUuid);
+    function sumbitPic() {
+    	var urll=urlfile + "coreAttachment/upload";
+    	if(addOrUpd==2){
+    		urll=urlfile + "coreAttachment/upload/update";
+    	}
+	    $("#upload").ajaxSubmit({
+	        //定义返回JSON数据，还包括xml和script格式
+	        type: "POST",
+	        dataType:'json',
+	        url:urll,
+	        success: function(data) {
+	            //提交成功后调用
+	            $(".uuids").val("ok");
+	            alert(data.errMsg);
+	        }
+	    });
+	}
+</script> 
+</head>  
+<body>
+	<form id="upload" name="upload" action="coreAttachment/upload" enctype="multipart/form-data" method="post">
+		<input type="file" name="thefile" /> 
+		<input type="hidden" name="cratmType" value="1" />
+		<input type="hidden" name="cratmDir" value="images" />
+		<input type="hidden" name="uuids" class="uuids" value="" />
+		<input type="hidden" name="cratmBusUuid" class="cratmBusUuid" value="" />
+		<input type="hidden" name="cratmUuid" class="cratmUuid" value="" />
+		<input type="button" onclick="sumbitPic()" value="上传" />
+	</form>
+</body>
+  
+</html>

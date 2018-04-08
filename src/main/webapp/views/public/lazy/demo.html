@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>懒加载</title>
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery.lazyload.js"></script>
+</head>
+<style type="text/css">
+.block{
+    width: 400px;
+    height: 400px;
+    margin: 10px;
+}
+img{
+  display: block;
+  margin-top: 10px;
+}
+</style>
+<body>
+  <img class="lazy" src="images/grey.gif" data-original="images/1.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/2.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/3.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/4.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/5.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/6.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/6bfb2025.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/6bfb2026.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/6bfb2027.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/6bfb2028.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/6bfb2029.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/6bfb2030.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/6bfb2031.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/6bfb2032.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/6bfb2033.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/6bfb2034.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/6bfb2035.jpg" width="760" height="570">
+  <img class="lazy" src="images/grey.gif" data-original="images/6bfb2036.jpg" width="760" height="570">
+</body>
+</html>
+
+<script type="text/javascript">
+$(function(){
+    $('img.lazy').lazyload();
+});
+</script>

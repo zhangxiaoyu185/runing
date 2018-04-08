@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>localResizeIMG</title>
+    <script type="text/javascript" src="jquery-3.0.0.min.js"></script>
+    <!--引入 lrz 插件 用于压缩图片-->
+    <script type="text/javascript" src="lrz.bundle.js"></script>
+</head>
+<body>
+<input type="file" accept="image/*" capture="camera">
+<input type="file" accept="image/jpeg">
+</body>
+<script>
+    $("input[type=file]").change(function () {
+        /* 压缩图片 */
+        lrz(this.files[0], {
+            width: 300 //设置压缩参数
+        }).then(function (rst) {
+            /* 处理成功后执行 */
+            console.log(rst.base64);
+            $("<img />").attr("src", rst.base64).appendTo("body");
+        }).catch(function (err) {
+            /* 处理失败后执行 */
+        }).always(function () {
+            /* 必然执行 */
+        })
+    })
+
+    //第二种直接根据路径获取图片
+    lrz('D:\\1.png')
+        .then(function (rst) {
+            // 处理成功会执行
+            console.log(rst.base64);
+            $("<img />").attr("src", rst.base64).appendTo("body");
+        })
+        .catch(function (err){
+            // 处理失败会执行
+        })
+        .always(function () {
+            // 不管是成功失败，都会执行
+        });
+</script>
+</html>

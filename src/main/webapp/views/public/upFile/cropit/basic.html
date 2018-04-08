@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>cropit</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="jquery.cropit.js"></script>
+
+    <style>
+      .cropit-preview {
+        background-color: #f8f8f8;
+        background-size: cover;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-top: 7px;
+        width: 250px;
+        height: 250px;
+      }
+
+      .cropit-preview-image-container {
+        cursor: move;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="image-editor">
+      <input type="file" class="cropit-image-input">
+      <div class="cropit-preview"></div>
+	  
+      选择尺寸:<input type="range" class="cropit-image-zoom-input">
+      <button class="rotate-ccw">右转90度</button>
+      <button class="rotate-cw">左转90度</button>
+	  <br />
+      <button class="export">剪切</button>
+	  <br />
+	  <image id="img1" src="#" />
+    </div>
+
+    <script>
+      $(function() {
+		$("#img1").hide();
+        $('.image-editor').cropit();
+
+        $('.rotate-cw').click(function() {
+          $('.image-editor').cropit('rotateCW');
+        });
+        $('.rotate-ccw').click(function() {
+          $('.image-editor').cropit('rotateCCW');
+        });
+
+        $('.export').click(function() {
+          var imageData = $('.image-editor').cropit('export');
+		  console.log(imageData);
+		  $("#img1").show();
+		  $("#img1").attr('src',imageData);
+        });
+      });
+    </script>
+  </body>
+</html>

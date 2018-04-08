@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+</head>
+<body>
+	<div class="fullSlide">
+		<div class="bd">
+			<div>
+				<ul>
+					<li><a target="_blank" href="#"><img src="images/tmp/1.jpg"/></a></li>
+					<li><a target="_blank" href="#"><img src="images/tmp/2.jpg"/></a></li>
+					<li><a target="_blank" href="#"><img src="images/tmp/3.jpg"/></a></li>
+					<li><a target="_blank" href="#"><img src="images/tmp/4.jpg"/></a></li>
+					<li><a target="_blank" href="#"><img src="images/tmp/5.jpg"/></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="hd"><ul></ul></div>
+	</div>
+
+
+<script type="text/javascript" src="js/jquery.min.1.9.1.js" ></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.2.js" ></script>
+
+<script type="text/javascript">
+jQuery(".fullSlide").slide({
+	titCell:".hd ul", 
+	mainCell:".bd ul", 
+	effect:"fold", 
+	vis:"auto",
+	interTime:4000,
+	autoPlay:true, 
+	autoPage:true, 
+	trigger:"mouseover"
+});
+</script>
+<!--[if lte IE 8]>
+<script type="text/javascript" src="js/IE8.js"></script>
+<![endif]-->
+</body>
+</html>

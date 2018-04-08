@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"> </meta>
+	<script type="text/javascript" src="jquery.js"></script>
+	<style type="text/css">
+		body { overflow-x: hidden;}
+	</style>
+</head>
+<body>
+<div class="preview">
+	<img src="file:///D:\1.png" class="firstImg">
+</div>
+<script type="text/javascript">
+    var winWidth = 0;
+    var winHeight = 0;
+    function findDimensions() //函数：获取尺寸
+    {
+        //获取窗口宽度
+        if (window.innerWidth)
+            winWidth = window.innerWidth;
+        else if ((document.body) && (document.body.clientWidth))
+            winWidth = document.body.clientWidth;
+        //获取窗口高度
+        if (window.innerHeight)
+            winHeight = window.innerHeight;
+        else if ((document.body) && (document.body.clientHeight))
+            winHeight = document.body.clientHeight;
+        //通过深入Document内部对body进行检测，获取窗口大小
+        if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth)
+        {
+            winHeight = document.documentElement.clientHeight;
+            winWidth = document.documentElement.clientWidth;
+        }
+        //获取两边需要截除的宽度
+        var swidth = (1920-winWidth)/2;
+        $('.preview').css({
+            width : winWidth,
+            height : 446,
+            overflow : 'hidden'
+        });
+        $('.firstImg').css({
+            width : 1920,
+            height : 446,
+            marginLeft : -swidth,
+            marginTop : 0
+        });
+    }
+    findDimensions();
+    //调用函数，获取数值
+    window.onresize=findDimensions;
+</script>
+</body>
+</html>
