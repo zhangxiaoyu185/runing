@@ -38,11 +38,11 @@ public class RestApiConfig {
 	private ApiInfo buildApiInf() {
 		return new ApiInfoBuilder()
 				.title("oilcard api")
-				.termsOfServiceUrl("https://oil.webaiyun.com/api-docs")
+				.termsOfServiceUrl("https://run.webaiyun.com/api-docs")
 				.description("<a href=\"/apidocs/api.html\" title=\"接口说明文档\" target=\"_blank\">接口说明文档</a>")
 				.contact(
 						new Contact("zhangyu",
-								"https://oil.webaiyun.com/apidocs/api.html",
+								"https://run.webaiyun.com/apidocs/api.html",
 								"zy135185@163.com")
 				)
 				.version("1.0.0").build();

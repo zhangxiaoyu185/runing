@@ -15,7 +15,7 @@ public class BaseConstant {
     /**
      * 附件默认文件夹
      */
-    public static String ATTACHMENT_DIR_PATH = "C:\\file\\oilcard\\";
+    public static String ATTACHMENT_DIR_PATH = "C:\\file\\run\\";
 
     /**
      * 默认附件文件夹
@@ -25,7 +25,7 @@ public class BaseConstant {
     /**
      * 项目域名
      */
-    public static String DEFAULT_DOMAIN_NAME = "https://oil.webaiyun.com/";
+    public static String DEFAULT_DOMAIN_NAME = "https://run.webaiyun.com/";
 
     /**
      * 音频软件默认目录
@@ -35,7 +35,7 @@ public class BaseConstant {
     /**
      * 项目名第一个目录
      */
-    public static String FIRST_DIR = "oilcard\\";
+    public static String FIRST_DIR = "run\\";
 
     /**
      * 小程序UUID
