@@ -26,22 +26,12 @@ public interface CoreUserService {
 	public boolean updateCoreUser(CoreUser coreUser);
 
 	/**
-	 * 修改佣金
+	 * 修改积分
 	 * @param crusrUuid
-	 * @param crusrWeekIncome
-	 * @param crusrTotalIncome
-	 * @param crusrEnableIncome
-	 * @param crusrFrozenIncome
+	 * @param crusrIntegral
 	 * @return
 	 */
-	public boolean updateCoreUserByIncome(String crusrUuid, double crusrWeekIncome, double crusrTotalIncome, double crusrEnableIncome, double crusrFrozenIncome);
-
-	/**
-	 * 修改下级成员人数
-	 * @param crusrUuid
-	 * @return
-	 */
-	public boolean updateCoreUserByDownCount(String crusrUuid);
+	public boolean updateCoreUserByIntegral(String crusrUuid, int crusrIntegral);
 
 	/**
 	* 根据openid修改
@@ -63,13 +53,6 @@ public interface CoreUserService {
 	* @return
 	*/
 	public CoreUser getCoreUser(CoreUser coreUser);
-
-	/**
-	 * 根据邀请码查询
-	 * @param crusrInviteCode
-	 * @return
-	 */
-	public CoreUser getCoreUserByInviteCode(String crusrInviteCode);
 
 	/**
 	* 根据openid查询
@@ -99,29 +82,4 @@ public interface CoreUserService {
      * @return Page
      */
     public Page<CoreUser> findCoreUserPage(CoreUser coreUser, int pageNum, int pageSize);
-
-	/**
-	 * 获取我的一级或二级U友数量
-	 * @param user
-	 * @param list
-	 * @return
-	 */
-	public int getCountUserOneOrTwo(String user, List<String> list);
-
-	/**
-	 * 获取我的一级或二级U友list
-	 * @param user
-	 * @param list
-	 * @return List
-	 */
-	public List<CoreUser> findCoreUserByMyOneOrTwo(String user, List<String> list);
-
-	/**
-	 * 获取我的一级或二级U友page
-	 * @param user
-	 * @param list
-	 * @return Page
-	 */
-	public Page<CoreUser> findCoreUserByMyOneOrTwo(String user, List<String> list, int pageNum, int pageSize);
-
 }

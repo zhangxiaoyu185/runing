@@ -24,9 +24,9 @@ public class CoreUserVO implements BaseVO {
     private String crusrUuid;
 
     /**
-     * 持卡人姓名/公司名
+     * 姓名
      */
-    @ApiModelProperty(value = "持卡人姓名/公司名")
+    @ApiModelProperty(value = "姓名")
     private String crusrName;
 
     /**
@@ -44,7 +44,7 @@ public class CoreUserVO implements BaseVO {
     /**
      * 创建日期
      */
-    @ApiModelProperty(value = "创建日期[成为下线时间]")
+    @ApiModelProperty(value = "创建日期")
     private Date crusrCdate;
 
     /**
@@ -120,112 +120,10 @@ public class CoreUserVO implements BaseVO {
     private String crusrUnionid;
 
     /**
-     * 邀请二维码
+     * 会话秘钥
      */
-    @ApiModelProperty(value = "邀请二维码")
-    private String crusrInvitedCode;
-
-    /**
-     * 身份证号
-     */
-    @ApiModelProperty(value = "身份证号")
-    private String crusrIdCard;
-
-    /**
-     * 银行账号名称
-     */
-    @ApiModelProperty(value = "银行账号名称")
-    private String crusrAccountName;
-
-    /**
-     * 银行账号
-     */
-    @ApiModelProperty(value = "银行账号")
-    private String crusrAccountNo;
-
-    /**
-     * 银行开户行
-     */
-    @ApiModelProperty(value = "银行开户行")
-    private String crusrBankName;
-
-    /**
-     * 银行开户网点
-     */
-    @ApiModelProperty(value = "银行开户网点")
-    private String crusrBankSite;
-
-    /**
-     * 行驶证照片正面
-     */
-    @ApiModelProperty(value = "行驶证照片正面")
-    private String crusrDrivingPic;
-
-    /**
-     * 行驶证照片反面
-     */
-    @ApiModelProperty(value = "行驶证照片反面")
-    private String crusrDrivingPicOther;
-
-    /**
-     * 车牌
-     */
-    @ApiModelProperty(value = "车牌")
-    private String crusrCarNo;
-
-    /**
-     * 行驶证号
-     */
-    @ApiModelProperty(value = "行驶证号")
-    private String crusrDrivingNo;
-
-    /**
-     * 营业执照号
-     */
-    @ApiModelProperty(value = "营业执照号")
-    private String crusrBusinessNo;
-
-    /**
-     * 身份（1个人2公司）
-     */
-    @ApiModelProperty(value = "身份（1个人2公司3未知）")
-    private Integer crusrType;
-
-    /**
-     * 本周佣金总额
-     */
-    @ApiModelProperty(value = "本周佣金总额")
-    private Double crusrWeekIncome;
-
-    /**
-     * 累积佣金总额
-     */
-    @ApiModelProperty(value = "累积佣金总额")
-    private Double crusrTotalIncome;
-
-    /**
-     * 解冻佣金总额
-     */
-    @ApiModelProperty(value = "解冻佣金总额")
-    private Double crusrEnableIncome;
-
-    /**
-     * 冻结佣金总额
-     */
-    @ApiModelProperty(value = "冻结佣金总额")
-    private Double crusrFrozenIncome;
-
-    /**
-     * 下级成员数量
-     */
-    @ApiModelProperty(value = "下级成员数量")
-    private Integer crusrDownCount;
-
-    /**
-     * 邀请人
-     */
-    @ApiModelProperty(value = "邀请人")
-    private String crusrInviter;
+    @ApiModelProperty(value = "会话秘钥")
+    private String crusrSessionKey;
 
     /**
      * 最后登录时间
@@ -234,28 +132,22 @@ public class CoreUserVO implements BaseVO {
     private Date crusrLastTime;
 
     /**
-     * 邀请码（注册时即产生的20位随机码）
+     * 所属部门
      */
-    @ApiModelProperty(value = "邀请码（注册时即产生的20位随机码）")
-    private String crusrInviteCode;
+    @ApiModelProperty(value = "所属部门")
+    private String crusrDept;
 
     /**
-     * 是否已完善1为已完善2为未完善
+     * 积分
      */
-    @ApiModelProperty(value = "是否已完善1为已完善2为未完善")
-    private Integer isComplete;
+    @ApiModelProperty(value = "积分")
+    private Integer crusrIntegral;
 
     /**
-     * 所属代理商平台(1本平台)
+     * 称号
      */
-    @ApiModelProperty(value = "所属代理商平台(1本平台)")
-    private String crusrAgent;
-
-    /**
-     * 优惠券总和
-     */
-    @ApiModelProperty(value = "优惠券总和")
-    private Integer crusrCouponSum;
+    @ApiModelProperty(value = "称号")
+    private String crusrTitle;
 
     public String getCrusrUuid() {
         return crusrUuid;
@@ -385,148 +277,12 @@ public class CoreUserVO implements BaseVO {
         this.crusrWxHeadimgurl = crusrWxHeadimgurl;
     }
 
-    public String getCrusrIdCard() {
-        return crusrIdCard;
-    }
-
-    public void setCrusrIdCard(String crusrIdCard) {
-        this.crusrIdCard = crusrIdCard;
-    }
-
-    public String getCrusrAccountName() {
-        return crusrAccountName;
-    }
-
-    public void setCrusrAccountName(String crusrAccountName) {
-        this.crusrAccountName = crusrAccountName;
-    }
-
-    public String getCrusrAccountNo() {
-        return crusrAccountNo;
-    }
-
-    public void setCrusrAccountNo(String crusrAccountNo) {
-        this.crusrAccountNo = crusrAccountNo;
-    }
-
-    public String getCrusrBankName() {
-        return crusrBankName;
-    }
-
-    public void setCrusrBankName(String crusrBankName) {
-        this.crusrBankName = crusrBankName;
-    }
-
-    public String getCrusrBankSite() {
-        return crusrBankSite;
-    }
-
-    public void setCrusrBankSite(String crusrBankSite) {
-        this.crusrBankSite = crusrBankSite;
-    }
-
-    public String getCrusrDrivingPic() {
-        return crusrDrivingPic;
-    }
-
-    public void setCrusrDrivingPic(String crusrDrivingPic) {
-        this.crusrDrivingPic = crusrDrivingPic;
-    }
-
-    public Double getCrusrWeekIncome() {
-        return crusrWeekIncome;
-    }
-
-    public void setCrusrWeekIncome(Double crusrWeekIncome) {
-        this.crusrWeekIncome = crusrWeekIncome;
-    }
-
-    public Double getCrusrTotalIncome() {
-        return crusrTotalIncome;
-    }
-
-    public void setCrusrTotalIncome(Double crusrTotalIncome) {
-        this.crusrTotalIncome = crusrTotalIncome;
-    }
-
-    public Double getCrusrEnableIncome() {
-        return crusrEnableIncome;
-    }
-
-    public void setCrusrEnableIncome(Double crusrEnableIncome) {
-        this.crusrEnableIncome = crusrEnableIncome;
-    }
-
-    public Double getCrusrFrozenIncome() {
-        return crusrFrozenIncome;
-    }
-
-    public void setCrusrFrozenIncome(Double crusrFrozenIncome) {
-        this.crusrFrozenIncome = crusrFrozenIncome;
-    }
-
-    public Integer getCrusrDownCount() {
-        return crusrDownCount;
-    }
-
-    public void setCrusrDownCount(Integer crusrDownCount) {
-        this.crusrDownCount = crusrDownCount;
-    }
-
-    public String getCrusrInviter() {
-        return crusrInviter;
-    }
-
-    public void setCrusrInviter(String crusrInviter) {
-        this.crusrInviter = crusrInviter;
-    }
-
     public Date getCrusrLastTime() {
         return crusrLastTime;
     }
 
     public void setCrusrLastTime(Date crusrLastTime) {
         this.crusrLastTime = crusrLastTime;
-    }
-
-    public String getCrusrInviteCode() {
-        return crusrInviteCode;
-    }
-
-    public void setCrusrInviteCode(String crusrInviteCode) {
-        this.crusrInviteCode = crusrInviteCode;
-    }
-
-    public Integer getIsComplete() {
-        return isComplete;
-    }
-
-    public void setIsComplete(Integer isComplete) {
-        this.isComplete = isComplete;
-    }
-
-    public String getCrusrAgent() {
-        return crusrAgent;
-    }
-
-    public void setCrusrAgent(String crusrAgent) {
-        this.crusrAgent = crusrAgent;
-    }
-
-    public String getCrusrDrivingPicOther() {
-        return crusrDrivingPicOther;
-    }
-
-    public void setCrusrDrivingPicOther(String crusrDrivingPicOther) {
-        this.crusrDrivingPicOther = crusrDrivingPicOther;
-    }
-
-    public Integer getCrusrCouponSum() {
-        return crusrCouponSum;
-    }
-
-    public void setCrusrCouponSum(Integer crusrCouponSum) {
-        this.crusrCouponSum = crusrCouponSum;
     }
 
     public String getCrusrUnionid() {
@@ -537,44 +293,36 @@ public class CoreUserVO implements BaseVO {
         this.crusrUnionid = crusrUnionid;
     }
 
-    public String getCrusrInvitedCode() {
-        return crusrInvitedCode;
+    public String getCrusrSessionKey() {
+        return crusrSessionKey;
     }
 
-    public void setCrusrInvitedCode(String crusrInvitedCode) {
-        this.crusrInvitedCode = crusrInvitedCode;
+    public void setCrusrSessionKey(String crusrSessionKey) {
+        this.crusrSessionKey = crusrSessionKey;
     }
 
-    public String getCrusrCarNo() {
-        return crusrCarNo;
+    public String getCrusrDept() {
+        return crusrDept;
     }
 
-    public void setCrusrCarNo(String crusrCarNo) {
-        this.crusrCarNo = crusrCarNo;
+    public void setCrusrDept(String crusrDept) {
+        this.crusrDept = crusrDept;
     }
 
-    public String getCrusrDrivingNo() {
-        return crusrDrivingNo;
+    public Integer getCrusrIntegral() {
+        return crusrIntegral;
     }
 
-    public void setCrusrDrivingNo(String crusrDrivingNo) {
-        this.crusrDrivingNo = crusrDrivingNo;
+    public void setCrusrIntegral(Integer crusrIntegral) {
+        this.crusrIntegral = crusrIntegral;
     }
 
-    public String getCrusrBusinessNo() {
-        return crusrBusinessNo;
+    public String getCrusrTitle() {
+        return crusrTitle;
     }
 
-    public void setCrusrBusinessNo(String crusrBusinessNo) {
-        this.crusrBusinessNo = crusrBusinessNo;
-    }
-
-    public Integer getCrusrType() {
-        return crusrType;
-    }
-
-    public void setCrusrType(Integer crusrType) {
-        this.crusrType = crusrType;
+    public void setCrusrTitle(String crusrTitle) {
+        this.crusrTitle = crusrTitle;
     }
 
     public CoreUserVO() {
@@ -604,27 +352,10 @@ public class CoreUserVO implements BaseVO {
         this.crusrWxProvince = po.getCrusrWxProvince();
         this.crusrWxHeadimgurl = po.getCrusrWxHeadimgurl();
         this.crusrUnionid = po.getCrusrUnionid();
-        this.crusrInvitedCode = po.getCrusrInvitedCode();
-        this.crusrIdCard = po.getCrusrIdCard();
-        this.crusrAccountName = po.getCrusrAccountName();
-        this.crusrAccountNo = po.getCrusrAccountNo();
-        this.crusrBankName = po.getCrusrBankName();
-        this.crusrBankSite = po.getCrusrBankSite();
-        this.crusrDrivingPic = po.getCrusrDrivingPic();
-        this.crusrDrivingPicOther = po.getCrusrDrivingPicOther();
-        this.crusrWeekIncome = po.getCrusrWeekIncome();
-        this.crusrTotalIncome = po.getCrusrTotalIncome();
-        this.crusrEnableIncome = po.getCrusrEnableIncome();
-        this.crusrFrozenIncome = po.getCrusrFrozenIncome();
-        this.crusrDownCount = po.getCrusrDownCount();
-        this.crusrInviter = po.getCrusrInviter();
         this.crusrLastTime = po.getCrusrLastTime();
-        this.crusrInviteCode = po.getCrusrInviteCode();
-        this.isComplete = po.getIsComplete();
-        this.crusrAgent = po.getCrusrAgent();
-        this.crusrBusinessNo = po.getCrusrBusinessNo();
-        this.crusrCarNo = po.getCrusrCarNo();
-        this.crusrType = po.getCrusrType();
-        this.crusrDrivingNo = po.getCrusrDrivingNo();
+        this.crusrDept = po.getCrusrDept();
+        this.crusrIntegral = po.getCrusrIntegral();
+        this.crusrSessionKey = po.getCrusrSessionKey();
+        this.crusrTitle = po.getCrusrTitle();
     }
 }

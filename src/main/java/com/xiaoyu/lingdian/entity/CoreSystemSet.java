@@ -23,46 +23,6 @@ public class CoreSystemSet extends BaseEntity {
     private String crsstUuid;
 
     /**
-     * 邀请链接前缀
-     */
-    private String crsstInviteLink;
-
-    /**
-     * 一级佣金比
-     */
-    private Double crsstFirstIncome;
-
-    /**
-     * 二级佣金比
-     */
-    private Double crsstSecondIncome;
-
-    /**
-     * 返还优惠券比例
-     */
-    private Integer crsstCoupon;
-
-    /**
-     * 短信接口路径
-     */
-    private String crsstMessagePath;
-
-    /**
-     * 短信账户名
-     */
-    private String crsstMessageLoginname;
-
-    /**
-     * 短信密码
-     */
-    private String crsstMessagePwd;
-
-    /**
-     * 短信KEY
-     */
-    private String crsstMessageKey;
-
-    /**
      * 项目域名
      */
     private String crsstMessageDomain;
@@ -71,6 +31,11 @@ public class CoreSystemSet extends BaseEntity {
      * 附件存放目录
      */
     private String crsstAttachmentDir;
+
+    /**
+     * 每日一言内容
+     */
+    private String crsstDayContent;
 
     public Integer getCrsstUnid() {
         return crsstUnid;
@@ -88,68 +53,12 @@ public class CoreSystemSet extends BaseEntity {
         this.crsstUuid = crsstUuid;
     }
 
-    public String getCrsstInviteLink() {
-        return crsstInviteLink;
+    public String getCrsstDayContent() {
+        return crsstDayContent;
     }
 
-    public void setCrsstInviteLink(String crsstInviteLink) {
-        this.crsstInviteLink = crsstInviteLink;
-    }
-
-    public Double getCrsstFirstIncome() {
-        return crsstFirstIncome;
-    }
-
-    public void setCrsstFirstIncome(Double crsstFirstIncome) {
-        this.crsstFirstIncome = crsstFirstIncome;
-    }
-
-    public Double getCrsstSecondIncome() {
-        return crsstSecondIncome;
-    }
-
-    public void setCrsstSecondIncome(Double crsstSecondIncome) {
-        this.crsstSecondIncome = crsstSecondIncome;
-    }
-
-    public Integer getCrsstCoupon() {
-        return crsstCoupon;
-    }
-
-    public void setCrsstCoupon(Integer crsstCoupon) {
-        this.crsstCoupon = crsstCoupon;
-    }
-
-    public String getCrsstMessagePath() {
-        return crsstMessagePath;
-    }
-
-    public void setCrsstMessagePath(String crsstMessagePath) {
-        this.crsstMessagePath = crsstMessagePath;
-    }
-
-    public String getCrsstMessageLoginname() {
-        return crsstMessageLoginname;
-    }
-
-    public void setCrsstMessageLoginname(String crsstMessageLoginname) {
-        this.crsstMessageLoginname = crsstMessageLoginname;
-    }
-
-    public String getCrsstMessagePwd() {
-        return crsstMessagePwd;
-    }
-
-    public void setCrsstMessagePwd(String crsstMessagePwd) {
-        this.crsstMessagePwd = crsstMessagePwd;
-    }
-
-    public String getCrsstMessageKey() {
-        return crsstMessageKey;
-    }
-
-    public void setCrsstMessageKey(String crsstMessageKey) {
-        this.crsstMessageKey = crsstMessageKey;
+    public void setCrsstDayContent(String crsstDayContent) {
+        this.crsstDayContent = crsstDayContent;
     }
 
     public String getCrsstMessageDomain() {

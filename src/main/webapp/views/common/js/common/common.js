@@ -1,5 +1,5 @@
 //系统名
-var headerTitle = "油卡服务管理平台";
+var headerTitle = "祥生健跑管理平台";
 //上传图片等待时间3分钟
 var waitImgTime = 180000;
 //弹框宽度

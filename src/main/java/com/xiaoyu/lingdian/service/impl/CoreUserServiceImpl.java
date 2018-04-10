@@ -44,22 +44,11 @@ public class CoreUserServiceImpl implements CoreUserService {
     }
 
    	@Override
-	public boolean updateCoreUserByIncome(String crusrUuid, double crusrWeekIncome, double crusrTotalIncome, double crusrEnableIncome, double crusrFrozenIncome) {
+	public boolean updateCoreUserByIntegral(String crusrUuid, int crusrIntegral) {
 		Map<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("crusrUuid", crusrUuid);
-		hashMap.put("crusrWeekIncome", crusrWeekIncome);
-		hashMap.put("crusrTotalIncome", crusrTotalIncome);
-		hashMap.put("crusrEnableIncome", crusrEnableIncome);
-		hashMap.put("crusrFrozenIncome", crusrFrozenIncome);
-		myBatisDAO.update("updateCoreUserByIncome", hashMap);
-		return true;
-	}
-
-	@Override
-	public boolean updateCoreUserByDownCount(String crusrUuid) {
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("crusrUuid", crusrUuid);
-		myBatisDAO.update("updateCoreUserByDownCount", hashMap);
+		hashMap.put("crusrIntegral", crusrIntegral);
+		myBatisDAO.update("updateCoreUserByIntegral", hashMap);
 		return true;
 	}
 
@@ -84,13 +73,6 @@ public class CoreUserServiceImpl implements CoreUserService {
     public CoreUser getCoreUser(CoreUser coreUser) {
         return (CoreUser) myBatisDAO.findForObject(coreUser);
     }
-
-	@Override
-	public CoreUser getCoreUserByInviteCode(String crusrInviteCode) {
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("crusrInviteCode", crusrInviteCode);
-		return (CoreUser) myBatisDAO.findForObject("getCoreUserByInviteCode", hashMap);
-	}
 
    	@Override
 	public CoreUser getCoreUserByOpenId(String crusrOpenid) {
@@ -125,44 +107,5 @@ public class CoreUserServiceImpl implements CoreUserService {
         Map<String, Object> hashMap = BeanToMapUtil.objectToMapReflect(coreUser);
         return myBatisDAO.findForPage("findCoreUserForPages", new PageRequest(pageNum, pageSize, hashMap));
     }
-
-	/**
-	 * 获取我的一级或二级U友数量
-	 * @param user
-	 * @param list
-	 * @return
-	 */
-	public int getCountUserOneOrTwo(String user, List<String> list){
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("user", user);
-		hashMap.put("list", list);
-		return ((Long) myBatisDAO.findForObject("getCountUserOneOrTwo", hashMap)).intValue();
-	}
-
-	/**
-	 * 获取我的一级或二级U友list
-	 * @param user
-	 * @param list
-	 * @return List
-	 */
-	public List<CoreUser> findCoreUserByMyOneOrTwo(String user, List<String> list){
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("user", user);
-		hashMap.put("list", list);
-		return myBatisDAO.findForList("findCoreUserByMyOneOrTwo", hashMap);
-	}
-
-	/**
-	 * 获取我的一级或二级U友page
-	 * @param user
-	 * @param list
-	 * @return Page
-	 */
-	public Page<CoreUser> findCoreUserByMyOneOrTwo(String user, List<String> list, int pageNum, int pageSize){
-		Map<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("user", user);
-		hashMap.put("list", list);
-		return myBatisDAO.findForPage("findCoreUserByMyOneOrTwo", new PageRequest(pageNum, pageSize, hashMap));
-	}
 
 }
