@@ -150,10 +150,34 @@ public class CoreUserVO implements BaseVO {
     private Integer crusrIntegral;
 
     /**
-     * 称号
+     * 个人称号
      */
-    @ApiModelProperty(value = "称号")
+    @ApiModelProperty(value = "个人称号")
     private String crusrTitle;
+
+    /**
+     * 部门称号
+     */
+    @ApiModelProperty(value = "部门称号")
+    private String deptTitle;
+
+    /**
+     * 今日步数
+     */
+    @ApiModelProperty(value = "今日步数")
+    private Integer dayStepCount;
+
+    /**
+     * 本周步数
+     */
+    @ApiModelProperty(value = "本周步数")
+    private Integer weekStepCount;
+
+    /**
+     * 本月步数
+     */
+    @ApiModelProperty(value = "本月步数")
+    private Integer monthStepCount;
 
     public String getCrusrUuid() {
         return crusrUuid;
@@ -337,6 +361,38 @@ public class CoreUserVO implements BaseVO {
 
     public void setCrusrDeptName(String crusrDeptName) {
         this.crusrDeptName = crusrDeptName;
+    }
+
+    public String getDeptTitle() {
+        return deptTitle;
+    }
+
+    public void setDeptTitle(String deptTitle) {
+        this.deptTitle = deptTitle;
+    }
+
+    public Integer getDayStepCount() {
+        return dayStepCount;
+    }
+
+    public void setDayStepCount(Integer dayStepCount) {
+        this.dayStepCount = dayStepCount;
+    }
+
+    public Integer getWeekStepCount() {
+        return weekStepCount;
+    }
+
+    public void setWeekStepCount(Integer weekStepCount) {
+        this.weekStepCount = weekStepCount;
+    }
+
+    public Integer getMonthStepCount() {
+        return monthStepCount;
+    }
+
+    public void setMonthStepCount(Integer monthStepCount) {
+        this.monthStepCount = monthStepCount;
     }
 
     public CoreUserVO() {

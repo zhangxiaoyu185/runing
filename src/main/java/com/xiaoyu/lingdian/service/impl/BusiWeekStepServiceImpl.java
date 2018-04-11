@@ -57,16 +57,26 @@ public class BusiWeekStepServiceImpl implements BusiWeekStepService {
 		return (BusiWeekStep) myBatisDAO.findForObject(busiWeekStep);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<BusiWeekStep> findBusiWeekStepList() {
-		return myBatisDAO.findForList("findBusiWeekStepForLists", null);
+	public BusiWeekStep getBusiWeekStepByOrd(Integer bswspOrd) {
+		Map<String, Object> hashMap = new HashMap<>();
+		hashMap.put("bswspOrd", bswspOrd);
+		return (BusiWeekStep) myBatisDAO.findForObject("getBusiWeekStepByOrd", hashMap);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Page<BusiWeekStep> findBusiWeekStepPage(BusiWeekStep busiWeekStep, int pageNum, int pageSize) {
+	public List<BusiWeekStep> findBusiWeekStepForWeekChat(Integer bswspOrd) {
+		Map<String, Object> hashMap = new HashMap<>();
+		hashMap.put("bswspOrd", bswspOrd);
+		return myBatisDAO.findForList("findBusiWeekStepForWeekChat", hashMap);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Page<BusiWeekStep> findBusiWeekStepPage(BusiWeekStep busiWeekStep, String name, int pageNum, int pageSize) {
 		Map<String, Object> hashMap = BeanToMapUtil.objectToMapReflect(busiWeekStep);
+		hashMap.put("name", name);
 		return myBatisDAO.findForPage("findBusiWeekStepForPages", new PageRequest(pageNum, pageSize, hashMap));
 	}
 

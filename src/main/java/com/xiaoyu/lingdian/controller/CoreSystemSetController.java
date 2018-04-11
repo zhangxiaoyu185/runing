@@ -57,13 +57,12 @@ public class CoreSystemSetController extends BaseController {
         logger.info("[CoreSystemSetController]:end updateCoreSystemSet");
     }
 
-
     /**
-     * 获取单个系统设置
+     * 获取每日一言
      *
      * @return
      */
-    @ApiOperation(value = "获取单个系统设置", httpMethod = "GET", notes = "获取单个系统设置", response = CoreSystemSetVO.class)
+    @ApiOperation(value = "获取每日一言", httpMethod = "GET", notes = "获取每日一言", response = CoreSystemSetVO.class)
     @RequestMapping(value = "/views", method = RequestMethod.GET)
     public void viewsCoreSystemSet(HttpServletResponse response) {
         logger.info("[CoreSystemSetController]:begin viewsCoreSystemSet");
@@ -71,7 +70,7 @@ public class CoreSystemSetController extends BaseController {
         coreSystemSet.setCrsstUuid(BaseConstant.SYSTEM_SET_UUID);
         coreSystemSet = coreSystemSetService.getCoreSystemSet(coreSystemSet);
         if (null == coreSystemSet) {
-            writeAjaxJSONResponse(ResultMessageBuilder.build(false, -1, "系统设置不存在!"), response);
+            writeAjaxJSONResponse(ResultMessageBuilder.build(false, -1, "每日一言未配置!"), response);
             logger.info("[CoreSystemSetController]:end viewsCoreSystemSet");
             return;
         }

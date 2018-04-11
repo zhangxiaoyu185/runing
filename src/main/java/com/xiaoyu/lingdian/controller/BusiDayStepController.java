@@ -113,7 +113,7 @@ public class BusiDayStepController extends BaseController {
     /**
      * 日步数排行榜<List>
      *
-     * @param bsdspDay   所属日期
+     * @param bsdspDay   上一次的日期(yyyy-MM-dd)
      * @return
      */
     @ApiOperation(value = "日步数排行榜", httpMethod = "POST", notes = "日步数排行榜", response = BusiDayStepVO.class)

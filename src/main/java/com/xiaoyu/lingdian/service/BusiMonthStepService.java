@@ -46,15 +46,21 @@ public interface BusiMonthStepService {
 	public BusiMonthStep getBusiMonthStep(BusiMonthStep busiMonthStep);
 
 	/**
-	* 查询所有List
-	* @return List
-	*/
-	public List<BusiMonthStep> findBusiMonthStepList();
+	 * 获取下一个序号
+	 * @return List
+	 */
+	public BusiMonthStep getBusiMonthStepByOrd(Integer bsmspOrd);
+
+	/**
+	 * 月排行榜
+	 * @return List
+	 */
+	public List<BusiMonthStep> findBusiMonthStepForMonthChat(Integer bsmspOrd);
 
 	/**
 	* 查询所有Page
 	* @return Page
 	*/
-	public Page<BusiMonthStep> findBusiMonthStepPage(BusiMonthStep busiMonthStep, int pageNum, int pageSize);
+	public Page<BusiMonthStep> findBusiMonthStepPage(BusiMonthStep busiMonthStep, String name, int pageNum, int pageSize);
 
 }

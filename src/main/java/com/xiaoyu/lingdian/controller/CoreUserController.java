@@ -50,6 +50,12 @@ public class CoreUserController extends BaseController {
     private CoreWechatService coreWechatService;
 
     /**
+     * 日步数表
+     */
+    @Autowired
+    private BusiDayStepService busiDayStepService;
+
+    /**
      * 获取号码归属地
      *
      * @param mobileTel 手机号码
@@ -300,6 +306,36 @@ public class CoreUserController extends BaseController {
 
         writeAjaxJSONResponse(ResultMessageBuilder.build(true, 1, "获取单个信息成功", coreUserVO), response);
         logger.info("[CoreUserController]:end viewsCoreUser");
+    }
+
+    /**
+     * 我的个人中心
+     *
+     * @param crusrUuid 标识UUID
+     * @return
+     */
+    @ApiOperation(value = "我的个人中心", httpMethod = "GET", notes = "我的个人中心", response = CoreUserVO.class)
+    @RequestMapping(value = "/my/center", method = RequestMethod.GET)
+    public void myCenter(
+            @ApiParam(value = "标识UUID", required = true) @RequestParam(value = "crusrUuid", required = true) String crusrUuid,
+            HttpServletResponse response) {
+        logger.info("[CoreUserController]:begin myCenter");
+        CoreUser coreUser = new CoreUser();
+        coreUser.setCrusrUuid(crusrUuid);
+        coreUser = coreUserService.getCoreUser(coreUser);
+        if (null == coreUser) {
+            writeAjaxJSONResponse(ResultMessageBuilder.build(false, -1, "用户不存在!"), response);
+            logger.info("[CoreUserController]:end myCenter");
+            return;
+        }
+
+        CoreUserVO coreUserVO = new CoreUserVO();
+        coreUserVO.convertPOToVO(coreUser);
+
+        //busiDayStepService
+
+        writeAjaxJSONResponse(ResultMessageBuilder.build(true, 1, "获取单个信息成功", coreUserVO), response);
+        logger.info("[CoreUserController]:end myCenter");
     }
 
     /**

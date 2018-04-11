@@ -46,15 +46,21 @@ public interface BusiWeekStepService {
 	public BusiWeekStep getBusiWeekStep(BusiWeekStep busiWeekStep);
 
 	/**
-	* 查询所有List
-	* @return List
-	*/
-	public List<BusiWeekStep> findBusiWeekStepList();
+	 * 获取下一个序号
+	 * @return List
+	 */
+	public BusiWeekStep getBusiWeekStepByOrd(Integer bswspOrd);
+
+	/**
+	 * 周排行榜
+	 * @return List
+	 */
+	public List<BusiWeekStep> findBusiWeekStepForWeekChat(Integer bswspOrd);
 
 	/**
 	* 查询所有Page
 	* @return Page
 	*/
-	public Page<BusiWeekStep> findBusiWeekStepPage(BusiWeekStep busiWeekStep, int pageNum, int pageSize);
+	public Page<BusiWeekStep> findBusiWeekStepPage(BusiWeekStep busiWeekStep, String name, int pageNum, int pageSize);
 
 }

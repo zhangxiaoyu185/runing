@@ -57,16 +57,26 @@ public class BusiMonthStepServiceImpl implements BusiMonthStepService {
 		return (BusiMonthStep) myBatisDAO.findForObject(busiMonthStep);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<BusiMonthStep> findBusiMonthStepList() {
-		return myBatisDAO.findForList("findBusiMonthStepForLists", null);
+	public BusiMonthStep getBusiMonthStepByOrd(Integer bsmspOrd) {
+		Map<String, Object> hashMap = new HashMap<>();
+		hashMap.put("bsmspOrd", bsmspOrd);
+		return (BusiMonthStep) myBatisDAO.findForObject("getBusiMonthStepByOrd", hashMap);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Page<BusiMonthStep> findBusiMonthStepPage(BusiMonthStep busiMonthStep, int pageNum, int pageSize) {
+	public List<BusiMonthStep> findBusiMonthStepForMonthChat(Integer bsmspOrd) {
+		Map<String, Object> hashMap = new HashMap<>();
+		hashMap.put("bsmspOrd", bsmspOrd);
+		return myBatisDAO.findForList("findBusiMonthStepForMonthChat", hashMap);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Page<BusiMonthStep> findBusiMonthStepPage(BusiMonthStep busiMonthStep, String name, int pageNum, int pageSize) {
 		Map<String, Object> hashMap = BeanToMapUtil.objectToMapReflect(busiMonthStep);
+		hashMap.put("name", name);
 		return myBatisDAO.findForPage("findBusiMonthStepForPages", new PageRequest(pageNum, pageSize, hashMap));
 	}
 
