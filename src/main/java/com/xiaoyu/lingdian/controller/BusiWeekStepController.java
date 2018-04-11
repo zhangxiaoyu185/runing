@@ -41,7 +41,10 @@ public class BusiWeekStepController extends BaseController {
 	* @param bswspUser 所属用户
 	* @param bswspCdate 创建时间
 	* @param bswspWeek 所属周
+	* @param bswspMonth 所属月
 	* @param bswspStep 步数
+	* @param bswspScore 分值
+	* @param bswspOrd 序号
 	* @return
 	*/
 	@ApiOperation(value="添加", httpMethod = "POST", notes = "添加")
@@ -50,7 +53,10 @@ public class BusiWeekStepController extends BaseController {
 					@ApiParam(value="所属用户", required = true) @RequestParam(value="bswspUser", required = true) String bswspUser,
 					@ApiParam(value="创建时间", required = true) @RequestParam(value="bswspCdate", required = true) Date bswspCdate,
 					@ApiParam(value="所属周", required = true) @RequestParam(value="bswspWeek", required = true) String bswspWeek,
+					@ApiParam(value="所属月", required = true) @RequestParam(value="bswspMonth", required = true) String bswspMonth,
 					@ApiParam(value="步数", required = true) @RequestParam(value="bswspStep", required = true) Integer bswspStep,
+					@ApiParam(value="分值", required = true) @RequestParam(value="bswspScore", required = true) Integer bswspScore,
+					@ApiParam(value="序号", required = true) @RequestParam(value="bswspOrd", required = true) Integer bswspOrd,
 					HttpServletResponse response) {
 		logger.info("[BusiWeekStepController]:begin addBusiWeekStep");
 		BusiWeekStep busiWeekStep = new BusiWeekStep();
@@ -59,7 +65,10 @@ public class BusiWeekStepController extends BaseController {
 				busiWeekStep.setBswspUser(bswspUser);
 				busiWeekStep.setBswspCdate(bswspCdate);
 				busiWeekStep.setBswspWeek(bswspWeek);
+				busiWeekStep.setBswspMonth(bswspMonth);
 				busiWeekStep.setBswspStep(bswspStep);
+				busiWeekStep.setBswspScore(bswspScore);
+				busiWeekStep.setBswspOrd(bswspOrd);
 		
 		busiWeekStepService.insertBusiWeekStep(busiWeekStep);
 
@@ -74,7 +83,10 @@ public class BusiWeekStepController extends BaseController {
 	* @param bswspUser 所属用户
 	* @param bswspCdate 创建时间
 	* @param bswspWeek 所属周
+	* @param bswspMonth 所属月
 	* @param bswspStep 步数
+	* @param bswspScore 分值
+	* @param bswspOrd 序号
 	* @return
 	*/
 	@RequestMapping(value="/update/busiWeekStep", method=RequestMethod.POST)
@@ -84,7 +96,10 @@ public class BusiWeekStepController extends BaseController {
 					@ApiParam(value="所属用户", required = true) @RequestParam(value="bswspUser", required = true) String bswspUser,
 					@ApiParam(value="创建时间", required = true) @RequestParam(value="bswspCdate", required = true) Date bswspCdate,
 					@ApiParam(value="所属周", required = true) @RequestParam(value="bswspWeek", required = true) String bswspWeek,
+					@ApiParam(value="所属月", required = true) @RequestParam(value="bswspMonth", required = true) String bswspMonth,
 					@ApiParam(value="步数", required = true) @RequestParam(value="bswspStep", required = true) Integer bswspStep,
+					@ApiParam(value="分值", required = true) @RequestParam(value="bswspScore", required = true) Integer bswspScore,
+					@ApiParam(value="序号", required = true) @RequestParam(value="bswspOrd", required = true) Integer bswspOrd,
 				HttpServletResponse response) {
 		logger.info("[BusiWeekStepController]:begin updateBusiWeekStep");
 		BusiWeekStep busiWeekStep = new BusiWeekStep();
@@ -92,7 +107,10 @@ public class BusiWeekStepController extends BaseController {
 		busiWeekStep.setBswspUser(bswspUser);
 		busiWeekStep.setBswspCdate(bswspCdate);
 		busiWeekStep.setBswspWeek(bswspWeek);
+		busiWeekStep.setBswspMonth(bswspMonth);
 		busiWeekStep.setBswspStep(bswspStep);
+		busiWeekStep.setBswspScore(bswspScore);
+		busiWeekStep.setBswspOrd(bswspOrd);
 
 		busiWeekStepService.updateBusiWeekStep(busiWeekStep);
 
@@ -205,7 +223,10 @@ public class BusiWeekStepController extends BaseController {
     * @param bswspUser 所属用户
     * @param bswspCdate 创建时间
     * @param bswspWeek 所属周
+    * @param bswspMonth 所属月
     * @param bswspStep 步数
+    * @param bswspScore 分值
+    * @param bswspOrd 序号
 	* @param pageNum 页码
 	* @param pageSize 页数
 	* @return
@@ -216,7 +237,10 @@ public class BusiWeekStepController extends BaseController {
 						@ApiParam(value="所属用户", required = true) @RequestParam(value="bswspUser", required = true) String bswspUser,
 						@ApiParam(value="创建时间", required = true) @RequestParam(value="bswspCdate", required = true) Date bswspCdate,
 						@ApiParam(value="所属周", required = true) @RequestParam(value="bswspWeek", required = true) String bswspWeek,
+						@ApiParam(value="所属月", required = true) @RequestParam(value="bswspMonth", required = true) String bswspMonth,
 						@ApiParam(value="步数", required = true) @RequestParam(value="bswspStep", required = true) Integer bswspStep,
+						@ApiParam(value="分值", required = true) @RequestParam(value="bswspScore", required = true) Integer bswspScore,
+						@ApiParam(value="序号", required = true) @RequestParam(value="bswspOrd", required = true) Integer bswspOrd,
 			            @ApiParam(value="第几页", required = false) @RequestParam(value="pageNum", required = false) Integer pageNum,
             @ApiParam(value="每页数量", required = false) @RequestParam(value="pageSize", required = false) Integer pageSize,
 			HttpServletResponse response) {
@@ -225,7 +249,10 @@ public class BusiWeekStepController extends BaseController {
 		busiWeekStep.setBswspUser(bswspUser);
 		busiWeekStep.setBswspCdate(bswspCdate);
 		busiWeekStep.setBswspWeek(bswspWeek);
+		busiWeekStep.setBswspMonth(bswspMonth);
 		busiWeekStep.setBswspStep(bswspStep);
+		busiWeekStep.setBswspScore(bswspScore);
+		busiWeekStep.setBswspOrd(bswspOrd);
 		if (pageNum == null || pageNum == 0) {
 			pageNum = 1;
 		}

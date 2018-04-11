@@ -4,91 +4,131 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import com.xiaoyu.lingdian.entity.BusiDayStep;
+
 import java.util.Date;
 
 /**
-* 日步数表
-* @author: zhangy
-* @since: 2018年04月09日 16:57:32
-* @history:
-*/
+ * 日步数表
+ *
+ * @author: zhangy
+ * @since: 2018年04月09日 16:57:32
+ * @history:
+ */
 @ApiModel(value = "日步数")
 public class BusiDayStepVO implements BaseVO {
 
-	/**标识UUID*/
-	@ApiModelProperty(value = "标识UUID")
-	private String bsdspUuid;
+    /**
+     * 标识UUID
+     */
+    @ApiModelProperty(value = "标识UUID")
+    private String bsdspUuid;
 
-		/**所属用户*/
+    /**
+     * 所属用户
+     */
     @ApiModelProperty(value = "所属用户")
-	private String bsdspUser;
+    private String bsdspUser;
 
-		/**创建时间*/
+    /**
+     * 所属用户名称
+     */
+    @ApiModelProperty(value = "所属用户名称")
+    private String bsdspUserName;
+
+    /**
+     * 创建时间
+     */
     @ApiModelProperty(value = "创建时间")
-	private Date bsdspCdate;
+    private Date bsdspCdate;
 
-		/**所属日期*/
+    /**
+     * 所属日期
+     */
     @ApiModelProperty(value = "所属日期")
-	private String bsdspDay;
+    private String bsdspDay;
 
-		/**步数*/
+    /**
+     * 步数
+     */
     @ApiModelProperty(value = "步数")
-	private Integer bsdspStep;
+    private Integer bsdspStep;
 
-		public String getBsdspUuid() {
-		return bsdspUuid;
-	}
+    /**
+     * 排序号
+     */
+    @ApiModelProperty(value = "排序号")
+    private Integer rank;
 
-	public void setBsdspUuid(String bsdspUuid) {
-		this.bsdspUuid = bsdspUuid;
-	}
+    public String getBsdspUuid() {
+        return bsdspUuid;
+    }
 
-		public String getBsdspUser() {
-		return bsdspUser;
-	}
+    public void setBsdspUuid(String bsdspUuid) {
+        this.bsdspUuid = bsdspUuid;
+    }
 
-	public void setBsdspUser(String bsdspUser) {
-		this.bsdspUser = bsdspUser;
-	}
+    public String getBsdspUser() {
+        return bsdspUser;
+    }
 
-		public Date getBsdspCdate() {
-		return bsdspCdate;
-	}
+    public void setBsdspUser(String bsdspUser) {
+        this.bsdspUser = bsdspUser;
+    }
 
-	public void setBsdspCdate(Date bsdspCdate) {
-		this.bsdspCdate = bsdspCdate;
-	}
+    public Date getBsdspCdate() {
+        return bsdspCdate;
+    }
 
-		public String getBsdspDay() {
-		return bsdspDay;
-	}
+    public void setBsdspCdate(Date bsdspCdate) {
+        this.bsdspCdate = bsdspCdate;
+    }
 
-	public void setBsdspDay(String bsdspDay) {
-		this.bsdspDay = bsdspDay;
-	}
+    public String getBsdspDay() {
+        return bsdspDay;
+    }
 
-		public Integer getBsdspStep() {
-		return bsdspStep;
-	}
+    public void setBsdspDay(String bsdspDay) {
+        this.bsdspDay = bsdspDay;
+    }
 
-	public void setBsdspStep(Integer bsdspStep) {
-		this.bsdspStep = bsdspStep;
-	}
+    public Integer getBsdspStep() {
+        return bsdspStep;
+    }
 
-		public BusiDayStepVO() {
-	}
+    public void setBsdspStep(Integer bsdspStep) {
+        this.bsdspStep = bsdspStep;
+    }
 
-	@Override
-	public void convertPOToVO(Object poObj) {
-		if (null == poObj) {
-			return;
-		}
+    public String getBsdspUserName() {
+        return bsdspUserName;
+    }
 
-		BusiDayStep po = (BusiDayStep) poObj;
-		this.bsdspUuid = po.getBsdspUuid();
-				this.bsdspUser = po.getBsdspUser();
-				this.bsdspCdate = po.getBsdspCdate();
-				this.bsdspDay = po.getBsdspDay();
-				this.bsdspStep = po.getBsdspStep();
-			}
+    public void setBsdspUserName(String bsdspUserName) {
+        this.bsdspUserName = bsdspUserName;
+    }
+
+    public Integer getRank() {
+        return rank;
+    }
+
+    public void setRank(Integer rank) {
+        this.rank = rank;
+    }
+
+    public BusiDayStepVO() {
+    }
+
+    @Override
+    public void convertPOToVO(Object poObj) {
+        if (null == poObj) {
+            return;
+        }
+
+        BusiDayStep po = (BusiDayStep) poObj;
+        this.bsdspUuid = po.getBsdspUuid();
+        this.bsdspUser = po.getBsdspUser();
+        this.bsdspCdate = po.getBsdspCdate();
+        this.bsdspDay = po.getBsdspDay();
+        this.bsdspStep = po.getBsdspStep();
+    }
 }

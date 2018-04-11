@@ -50,18 +50,6 @@ public class CoreUserController extends BaseController {
     private CoreWechatService coreWechatService;
 
     /**
-     * 业务附件表
-     */
-    @Autowired
-    private CoreAttachmentService coreAttachmentService;
-
-    /**
-     * 系统设置表
-     */
-    @Autowired
-    private CoreSystemSetService coreSystemSetService;
-
-    /**
      * 获取号码归属地
      *
      * @param mobileTel 手机号码
@@ -202,7 +190,7 @@ public class CoreUserController extends BaseController {
      * @param crusrName            姓名
      * @param crusrMobile          手机号
      * @param crusrGender          性别:1男,2女,0其它
-     * @param crusrIdCard          所属部门
+     * @param crusrDept          所属部门
      */
     @RequestMapping(value = "/update/coreUser", method = RequestMethod.POST)
     @ApiOperation(value = "(前台调用)完善信息", httpMethod = "POST", notes = "(前台调用)完善信息")

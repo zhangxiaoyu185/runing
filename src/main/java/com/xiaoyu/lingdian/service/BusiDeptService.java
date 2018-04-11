@@ -4,6 +4,7 @@ import com.xiaoyu.lingdian.core.mybatis.page.Page;
 import com.xiaoyu.lingdian.entity.BusiDept;
 
 import java.util.List;
+import java.util.Map;
 
 /**
 * 部门表
@@ -56,5 +57,12 @@ public interface BusiDeptService {
 	* @return Page
 	*/
 	public Page<BusiDept> findBusiDeptPage(BusiDept busiDept, int pageNum, int pageSize);
+
+	/**
+	 * 查询部门Mapper
+	 * @param list
+	 * @return List
+	 */
+	public Map<String, BusiDept> findBusiDeptMapByUuidList(List<String> list);
 
 }

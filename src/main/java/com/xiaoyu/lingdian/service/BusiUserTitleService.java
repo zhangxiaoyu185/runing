@@ -55,6 +55,6 @@ public interface BusiUserTitleService {
 	* 查询所有Page
 	* @return Page
 	*/
-	public Page<BusiUserTitle> findBusiUserTitlePage(BusiUserTitle busiUserTitle, int pageNum, int pageSize);
+	public Page<BusiUserTitle> findBusiUserTitlePage(BusiUserTitle busiUserTitle, String name, int pageNum, int pageSize);
 
 }

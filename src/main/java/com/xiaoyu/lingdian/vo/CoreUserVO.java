@@ -138,6 +138,12 @@ public class CoreUserVO implements BaseVO {
     private String crusrDept;
 
     /**
+     * 所属部门名称
+     */
+    @ApiModelProperty(value = "所属部门名称")
+    private String crusrDeptName;
+
+    /**
      * 积分
      */
     @ApiModelProperty(value = "积分")
@@ -325,6 +331,14 @@ public class CoreUserVO implements BaseVO {
         this.crusrTitle = crusrTitle;
     }
 
+    public String getCrusrDeptName() {
+        return crusrDeptName;
+    }
+
+    public void setCrusrDeptName(String crusrDeptName) {
+        this.crusrDeptName = crusrDeptName;
+    }
+
     public CoreUserVO() {
     }
 
@@ -357,5 +371,6 @@ public class CoreUserVO implements BaseVO {
         this.crusrIntegral = po.getCrusrIntegral();
         this.crusrSessionKey = po.getCrusrSessionKey();
         this.crusrTitle = po.getCrusrTitle();
+        this.crusrDeptName = po.getCrusrDeptName();
     }
 }

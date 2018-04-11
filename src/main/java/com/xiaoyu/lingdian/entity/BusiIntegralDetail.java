@@ -3,104 +3,134 @@ package com.xiaoyu.lingdian.entity;
 import java.util.Date;
 
 /**
-* 积分明细表
-* @author: zhangy
-* @since: 2018年04月09日 16:57:33
-* @history:
-*/
+ * 积分明细表
+ *
+ * @author: zhangy
+ * @since: 2018年04月09日 16:57:33
+ * @history:
+ */
 public class BusiIntegralDetail extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-		/**标识UNID*/
-	private Integer bsidlUnid;
+    /**
+     * 标识UNID
+     */
+    private Integer bsidlUnid;
 
-		/**标识UUID*/
-	private String bsidlUuid;
+    /**
+     * 标识UUID
+     */
+    private String bsidlUuid;
 
-		/**增减方向(1增2减)*/
-	private Integer bsidlDire;
+    /**
+     * 增减方向(1增2减)
+     */
+    private Integer bsidlDire;
 
-		/**数值*/
-	private Integer bsidlNum;
+    /**
+     * 数值
+     */
+    private Integer bsidlNum;
 
-		/**备注*/
-	private String bsidlRemark;
+    /**
+     * 备注
+     */
+    private String bsidlRemark;
 
-		/**被修改人*/
-	private String bsidlUser;
+    /**
+     * 被修改人
+     */
+    private String bsidlUser;
 
-		/**创建时间*/
-	private Date bsidlCdate;
+    /**
+     * 被修改人名称
+     */
+    private String bsidlUserName;
 
-		/**操作人*/
-	private String bsidlOper;
+    /**
+     * 创建时间
+     */
+    private Date bsidlCdate;
 
-			public Integer getBsidlUnid() {
-		return bsidlUnid;
-	}
+    /**
+     * 操作人
+     */
+    private String bsidlOper;
 
-	public void setBsidlUnid(Integer bsidlUnid) {
-		this.bsidlUnid = bsidlUnid;
-	}
+    public Integer getBsidlUnid() {
+        return bsidlUnid;
+    }
 
-		public String getBsidlUuid() {
-		return bsidlUuid;
-	}
+    public void setBsidlUnid(Integer bsidlUnid) {
+        this.bsidlUnid = bsidlUnid;
+    }
 
-	public void setBsidlUuid(String bsidlUuid) {
-		this.bsidlUuid = bsidlUuid;
-	}
+    public String getBsidlUuid() {
+        return bsidlUuid;
+    }
 
-		public Integer getBsidlDire() {
-		return bsidlDire;
-	}
+    public void setBsidlUuid(String bsidlUuid) {
+        this.bsidlUuid = bsidlUuid;
+    }
 
-	public void setBsidlDire(Integer bsidlDire) {
-		this.bsidlDire = bsidlDire;
-	}
+    public Integer getBsidlDire() {
+        return bsidlDire;
+    }
 
-		public Integer getBsidlNum() {
-		return bsidlNum;
-	}
+    public void setBsidlDire(Integer bsidlDire) {
+        this.bsidlDire = bsidlDire;
+    }
 
-	public void setBsidlNum(Integer bsidlNum) {
-		this.bsidlNum = bsidlNum;
-	}
+    public Integer getBsidlNum() {
+        return bsidlNum;
+    }
 
-		public String getBsidlRemark() {
-		return bsidlRemark;
-	}
+    public void setBsidlNum(Integer bsidlNum) {
+        this.bsidlNum = bsidlNum;
+    }
 
-	public void setBsidlRemark(String bsidlRemark) {
-		this.bsidlRemark = bsidlRemark;
-	}
+    public String getBsidlRemark() {
+        return bsidlRemark;
+    }
 
-		public String getBsidlUser() {
-		return bsidlUser;
-	}
+    public void setBsidlRemark(String bsidlRemark) {
+        this.bsidlRemark = bsidlRemark;
+    }
 
-	public void setBsidlUser(String bsidlUser) {
-		this.bsidlUser = bsidlUser;
-	}
+    public String getBsidlUser() {
+        return bsidlUser;
+    }
 
-		public Date getBsidlCdate() {
-		return bsidlCdate;
-	}
+    public void setBsidlUser(String bsidlUser) {
+        this.bsidlUser = bsidlUser;
+    }
 
-	public void setBsidlCdate(Date bsidlCdate) {
-		this.bsidlCdate = bsidlCdate;
-	}
+    public Date getBsidlCdate() {
+        return bsidlCdate;
+    }
 
-		public String getBsidlOper() {
-		return bsidlOper;
-	}
+    public void setBsidlCdate(Date bsidlCdate) {
+        this.bsidlCdate = bsidlCdate;
+    }
 
-	public void setBsidlOper(String bsidlOper) {
-		this.bsidlOper = bsidlOper;
-	}
+    public String getBsidlOper() {
+        return bsidlOper;
+    }
 
-		public BusiIntegralDetail() {
-	}
+    public void setBsidlOper(String bsidlOper) {
+        this.bsidlOper = bsidlOper;
+    }
+
+    public String getBsidlUserName() {
+        return bsidlUserName;
+    }
+
+    public void setBsidlUserName(String bsidlUserName) {
+        this.bsidlUserName = bsidlUserName;
+    }
+
+    public BusiIntegralDetail() {
+    }
 
 }

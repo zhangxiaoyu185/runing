@@ -65,8 +65,9 @@ public class BusiIntegralDetailServiceImpl implements BusiIntegralDetailService 
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Page<BusiIntegralDetail> findBusiIntegralDetailPage(BusiIntegralDetail busiIntegralDetail, int pageNum, int pageSize) {
+	public Page<BusiIntegralDetail> findBusiIntegralDetailPage(BusiIntegralDetail busiIntegralDetail, String name, int pageNum, int pageSize) {
 		Map<String, Object> hashMap = BeanToMapUtil.objectToMapReflect(busiIntegralDetail);
+		hashMap.put("name", name);
 		return myBatisDAO.findForPage("findBusiIntegralDetailForPages", new PageRequest(pageNum, pageSize, hashMap));
 	}
 

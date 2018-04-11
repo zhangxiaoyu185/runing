@@ -46,15 +46,21 @@ public interface BusiDayStepService {
 	public BusiDayStep getBusiDayStep(BusiDayStep busiDayStep);
 
 	/**
-	* 查询所有List
+	 * 获取下一个日期
+	 * @return List
+	 */
+	public BusiDayStep getBusiDayStepByOrd(String bsdspDay);
+
+	/**
+	* 日排行榜
 	* @return List
 	*/
-	public List<BusiDayStep> findBusiDayStepList();
+	public List<BusiDayStep> findBusiDayStepForDayChat(String bsdspDay);
 
 	/**
 	* 查询所有Page
 	* @return Page
 	*/
-	public Page<BusiDayStep> findBusiDayStepPage(BusiDayStep busiDayStep, int pageNum, int pageSize);
+	public Page<BusiDayStep> findBusiDayStepPage(BusiDayStep busiDayStep, String name, int pageNum, int pageSize);
 
 }

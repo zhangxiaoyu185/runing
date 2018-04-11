@@ -1,11 +1,9 @@
 package com.xiaoyu.lingdian.controller;
 
-import com.xiaoyu.lingdian.service.*;
 import com.xiaoyu.lingdian.tool.out.ResultMessageBuilder;
 import com.xiaoyu.lingdian.vo.CoreUserVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,10 +30,6 @@ public class TotalDataController extends BaseController {
             HttpServletResponse response) {
         logger.info("[TotalDataController]:begin totalData");
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("daycount", "100000");
-        map.put("weekcount", "100000");
-        map.put("monthcount", "100000");
-        map.put("usercount", "100000");
 
         writeAjaxJSONResponse(ResultMessageBuilder.build(true, 1, "获取数据统计成功", map), response);
         logger.info("[TotalDataController]:end totalData");

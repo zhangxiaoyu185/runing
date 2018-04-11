@@ -55,6 +55,6 @@ public interface BusiIntegralDetailService {
 	* 查询所有Page
 	* @return Page
 	*/
-	public Page<BusiIntegralDetail> findBusiIntegralDetailPage(BusiIntegralDetail busiIntegralDetail, int pageNum, int pageSize);
+	public Page<BusiIntegralDetail> findBusiIntegralDetailPage(BusiIntegralDetail busiIntegralDetail, String name, int pageNum, int pageSize);
 
 }

@@ -42,6 +42,8 @@ public class BusiMonthStepController extends BaseController {
 	* @param bsmspCdate 创建时间
 	* @param bsmspMonth 所属月
 	* @param bsmspStep 步数
+	* @param bsmspScore 分值
+	* @param bsmspOrd 序号
 	* @return
 	*/
 	@ApiOperation(value="添加", httpMethod = "POST", notes = "添加")
@@ -51,6 +53,8 @@ public class BusiMonthStepController extends BaseController {
 					@ApiParam(value="创建时间", required = true) @RequestParam(value="bsmspCdate", required = true) Date bsmspCdate,
 					@ApiParam(value="所属月", required = true) @RequestParam(value="bsmspMonth", required = true) String bsmspMonth,
 					@ApiParam(value="步数", required = true) @RequestParam(value="bsmspStep", required = true) Integer bsmspStep,
+					@ApiParam(value="分值", required = true) @RequestParam(value="bsmspScore", required = true) Integer bsmspScore,
+					@ApiParam(value="序号", required = true) @RequestParam(value="bsmspOrd", required = true) Integer bsmspOrd,
 					HttpServletResponse response) {
 		logger.info("[BusiMonthStepController]:begin addBusiMonthStep");
 		BusiMonthStep busiMonthStep = new BusiMonthStep();
@@ -60,6 +64,8 @@ public class BusiMonthStepController extends BaseController {
 				busiMonthStep.setBsmspCdate(bsmspCdate);
 				busiMonthStep.setBsmspMonth(bsmspMonth);
 				busiMonthStep.setBsmspStep(bsmspStep);
+				busiMonthStep.setBsmspScore(bsmspScore);
+				busiMonthStep.setBsmspOrd(bsmspOrd);
 		
 		busiMonthStepService.insertBusiMonthStep(busiMonthStep);
 
@@ -75,6 +81,8 @@ public class BusiMonthStepController extends BaseController {
 	* @param bsmspCdate 创建时间
 	* @param bsmspMonth 所属月
 	* @param bsmspStep 步数
+	* @param bsmspScore 分值
+	* @param bsmspOrd 序号
 	* @return
 	*/
 	@RequestMapping(value="/update/busiMonthStep", method=RequestMethod.POST)
@@ -85,6 +93,8 @@ public class BusiMonthStepController extends BaseController {
 					@ApiParam(value="创建时间", required = true) @RequestParam(value="bsmspCdate", required = true) Date bsmspCdate,
 					@ApiParam(value="所属月", required = true) @RequestParam(value="bsmspMonth", required = true) String bsmspMonth,
 					@ApiParam(value="步数", required = true) @RequestParam(value="bsmspStep", required = true) Integer bsmspStep,
+					@ApiParam(value="分值", required = true) @RequestParam(value="bsmspScore", required = true) Integer bsmspScore,
+					@ApiParam(value="序号", required = true) @RequestParam(value="bsmspOrd", required = true) Integer bsmspOrd,
 				HttpServletResponse response) {
 		logger.info("[BusiMonthStepController]:begin updateBusiMonthStep");
 		BusiMonthStep busiMonthStep = new BusiMonthStep();
@@ -93,6 +103,8 @@ public class BusiMonthStepController extends BaseController {
 		busiMonthStep.setBsmspCdate(bsmspCdate);
 		busiMonthStep.setBsmspMonth(bsmspMonth);
 		busiMonthStep.setBsmspStep(bsmspStep);
+		busiMonthStep.setBsmspScore(bsmspScore);
+		busiMonthStep.setBsmspOrd(bsmspOrd);
 
 		busiMonthStepService.updateBusiMonthStep(busiMonthStep);
 
@@ -206,6 +218,8 @@ public class BusiMonthStepController extends BaseController {
     * @param bsmspCdate 创建时间
     * @param bsmspMonth 所属月
     * @param bsmspStep 步数
+    * @param bsmspScore 分值
+    * @param bsmspOrd 序号
 	* @param pageNum 页码
 	* @param pageSize 页数
 	* @return
@@ -217,6 +231,8 @@ public class BusiMonthStepController extends BaseController {
 						@ApiParam(value="创建时间", required = true) @RequestParam(value="bsmspCdate", required = true) Date bsmspCdate,
 						@ApiParam(value="所属月", required = true) @RequestParam(value="bsmspMonth", required = true) String bsmspMonth,
 						@ApiParam(value="步数", required = true) @RequestParam(value="bsmspStep", required = true) Integer bsmspStep,
+						@ApiParam(value="分值", required = true) @RequestParam(value="bsmspScore", required = true) Integer bsmspScore,
+						@ApiParam(value="序号", required = true) @RequestParam(value="bsmspOrd", required = true) Integer bsmspOrd,
 			            @ApiParam(value="第几页", required = false) @RequestParam(value="pageNum", required = false) Integer pageNum,
             @ApiParam(value="每页数量", required = false) @RequestParam(value="pageSize", required = false) Integer pageSize,
 			HttpServletResponse response) {
@@ -226,6 +242,8 @@ public class BusiMonthStepController extends BaseController {
 		busiMonthStep.setBsmspCdate(bsmspCdate);
 		busiMonthStep.setBsmspMonth(bsmspMonth);
 		busiMonthStep.setBsmspStep(bsmspStep);
+		busiMonthStep.setBsmspScore(bsmspScore);
+		busiMonthStep.setBsmspOrd(bsmspOrd);
 		if (pageNum == null || pageNum == 0) {
 			pageNum = 1;
 		}

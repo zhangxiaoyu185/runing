@@ -57,16 +57,26 @@ public class BusiDayStepServiceImpl implements BusiDayStepService {
 		return (BusiDayStep) myBatisDAO.findForObject(busiDayStep);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<BusiDayStep> findBusiDayStepList() {
-		return myBatisDAO.findForList("findBusiDayStepForLists", null);
+	public BusiDayStep getBusiDayStepByOrd(String bsdspDay) {
+		Map<String, Object> hashMap = new HashMap<>();
+		hashMap.put("bsdspDay", bsdspDay);
+		return (BusiDayStep) myBatisDAO.findForObject("getBusiDayStepByOrd", hashMap);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Page<BusiDayStep> findBusiDayStepPage(BusiDayStep busiDayStep, int pageNum, int pageSize) {
+	public List<BusiDayStep> findBusiDayStepForDayChat(String bsdspDay) {
+		Map<String, Object> hashMap = new HashMap<>();
+		hashMap.put("bsdspDay", bsdspDay);
+		return myBatisDAO.findForList("findBusiDayStepForDayChat", hashMap);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Page<BusiDayStep> findBusiDayStepPage(BusiDayStep busiDayStep, String name, int pageNum, int pageSize) {
 		Map<String, Object> hashMap = BeanToMapUtil.objectToMapReflect(busiDayStep);
+		hashMap.put("name", name);
 		return myBatisDAO.findForPage("findBusiDayStepForPages", new PageRequest(pageNum, pageSize, hashMap));
 	}
 

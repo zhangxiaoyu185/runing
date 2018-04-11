@@ -65,8 +65,9 @@ public class BusiUserTitleServiceImpl implements BusiUserTitleService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Page<BusiUserTitle> findBusiUserTitlePage(BusiUserTitle busiUserTitle, int pageNum, int pageSize) {
+	public Page<BusiUserTitle> findBusiUserTitlePage(BusiUserTitle busiUserTitle, String name, int pageNum, int pageSize) {
 		Map<String, Object> hashMap = BeanToMapUtil.objectToMapReflect(busiUserTitle);
+		hashMap.put("name", name);
 		return myBatisDAO.findForPage("findBusiUserTitleForPages", new PageRequest(pageNum, pageSize, hashMap));
 	}
 

@@ -76,9 +76,9 @@ function showMenuList() {
     menulist += '<li class="nav-top-li">'
         + '<p class="p-text">你好，' + sessionStorage.getItem("name") + '</p>'
         + '</li>';
-    menulist += '<li class="nav-top-li">'
-        + '<a class="btn-nav" href = "../common/ht-indx.html" target="iframe" >数据统计</a>'
-        + '</li>';
+    // menulist += '<li class="nav-top-li">'
+    //     + '<a class="btn-nav" href = "../common/ht-indx.html" target="iframe" >数据统计</a>'
+    //     + '</li>';
     menulist += '<li class="nav-top-li">';
     menulist += '<ul id="treeMenu" class="menulist"></ul>';
     menulist += '</li>';

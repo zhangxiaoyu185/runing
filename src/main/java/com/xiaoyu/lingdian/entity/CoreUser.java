@@ -119,6 +119,11 @@ public class CoreUser extends BaseEntity {
     private String crusrDept;
 
     /**
+     * 所属部门名称
+     */
+    private String crusrDeptName;
+
+    /**
      * 积分
      */
     private Integer crusrIntegral;
@@ -310,6 +315,14 @@ public class CoreUser extends BaseEntity {
 
     public void setCrusrTitle(String crusrTitle) {
         this.crusrTitle = crusrTitle;
+    }
+
+    public String getCrusrDeptName() {
+        return crusrDeptName;
+    }
+
+    public void setCrusrDeptName(String crusrDeptName) {
+        this.crusrDeptName = crusrDeptName;
     }
 
     public CoreUser() {

@@ -1,84 +1,112 @@
 package com.xiaoyu.lingdian.entity;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 
 /**
-* 个人称号记录表
-* @author: zhangy
-* @since: 2018年04月09日 16:57:33
-* @history:
-*/
+ * 个人称号记录表
+ *
+ * @author: zhangy
+ * @since: 2018年04月09日 16:57:33
+ * @history:
+ */
 public class BusiUserTitle extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-		/**标识UNID*/
-	private Integer bsuteUnid;
+    /**
+     * 标识UNID
+     */
+    private Integer bsuteUnid;
 
-		/**标识UUID*/
-	private String bsuteUuid;
+    /**
+     * 标识UUID
+     */
+    private String bsuteUuid;
 
-		/**所属用户*/
-	private String bsuteUser;
+    /**
+     * 所属用户
+     */
+    private String bsuteUser;
 
-		/**所属月*/
-	private String bsuteMonth;
+    /**
+     * 所属用户名称
+     */
+    private String bsuteUserName;
 
-		/**获得称号*/
-	private String bsuteTitle;
+    /**
+     * 所属月
+     */
+    private String bsuteMonth;
 
-		/**创建时间*/
-	private Date bsuteCdate;
+    /**
+     * 获得称号
+     */
+    private String bsuteTitle;
 
-			public Integer getBsuteUnid() {
-		return bsuteUnid;
-	}
+    /**
+     * 创建时间
+     */
+    private Date bsuteCdate;
 
-	public void setBsuteUnid(Integer bsuteUnid) {
-		this.bsuteUnid = bsuteUnid;
-	}
+    public Integer getBsuteUnid() {
+        return bsuteUnid;
+    }
 
-		public String getBsuteUuid() {
-		return bsuteUuid;
-	}
+    public void setBsuteUnid(Integer bsuteUnid) {
+        this.bsuteUnid = bsuteUnid;
+    }
 
-	public void setBsuteUuid(String bsuteUuid) {
-		this.bsuteUuid = bsuteUuid;
-	}
+    public String getBsuteUuid() {
+        return bsuteUuid;
+    }
 
-		public String getBsuteUser() {
-		return bsuteUser;
-	}
+    public void setBsuteUuid(String bsuteUuid) {
+        this.bsuteUuid = bsuteUuid;
+    }
 
-	public void setBsuteUser(String bsuteUser) {
-		this.bsuteUser = bsuteUser;
-	}
+    public String getBsuteUser() {
+        return bsuteUser;
+    }
 
-		public String getBsuteMonth() {
-		return bsuteMonth;
-	}
+    public void setBsuteUser(String bsuteUser) {
+        this.bsuteUser = bsuteUser;
+    }
 
-	public void setBsuteMonth(String bsuteMonth) {
-		this.bsuteMonth = bsuteMonth;
-	}
+    public String getBsuteMonth() {
+        return bsuteMonth;
+    }
 
-		public String getBsuteTitle() {
-		return bsuteTitle;
-	}
+    public void setBsuteMonth(String bsuteMonth) {
+        this.bsuteMonth = bsuteMonth;
+    }
 
-	public void setBsuteTitle(String bsuteTitle) {
-		this.bsuteTitle = bsuteTitle;
-	}
+    public String getBsuteTitle() {
+        return bsuteTitle;
+    }
 
-		public Date getBsuteCdate() {
-		return bsuteCdate;
-	}
+    public void setBsuteTitle(String bsuteTitle) {
+        this.bsuteTitle = bsuteTitle;
+    }
 
-	public void setBsuteCdate(Date bsuteCdate) {
-		this.bsuteCdate = bsuteCdate;
-	}
+    public Date getBsuteCdate() {
+        return bsuteCdate;
+    }
 
-		public BusiUserTitle() {
-	}
+    public void setBsuteCdate(Date bsuteCdate) {
+        this.bsuteCdate = bsuteCdate;
+    }
+
+    public String getBsuteUserName() {
+        return bsuteUserName;
+    }
+
+    public void setBsuteUserName(String bsuteUserName) {
+        this.bsuteUserName = bsuteUserName;
+    }
+
+    public BusiUserTitle() {
+    }
 
 }

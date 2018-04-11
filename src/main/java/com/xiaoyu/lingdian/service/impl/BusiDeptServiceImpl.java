@@ -1,6 +1,7 @@
 package com.xiaoyu.lingdian.service.impl;
 
 import com.xiaoyu.lingdian.core.mybatis.dao.MyBatisDAO;
+import com.xiaoyu.lingdian.core.mybatis.mapper.SimpleMapMapper;
 import com.xiaoyu.lingdian.core.mybatis.page.Page;
 import com.xiaoyu.lingdian.core.mybatis.page.PageRequest;
 import com.xiaoyu.lingdian.entity.BusiDept;
@@ -19,6 +20,13 @@ import java.util.Map;
 */
 @Service("busiDeptService")
 public class BusiDeptServiceImpl implements BusiDeptService {
+
+	private static final SimpleMapMapper<String, BusiDept> DEPT_UUID_MAPPER = new SimpleMapMapper<String, BusiDept>() {
+		@Override
+		public String mapKey(BusiDept object, int rowNum) {
+			return object.getBsdetUuid();
+		}
+	};
 
 	@Autowired
 	private MyBatisDAO myBatisDAO;
@@ -68,6 +76,17 @@ public class BusiDeptServiceImpl implements BusiDeptService {
 	public Page<BusiDept> findBusiDeptPage(BusiDept busiDept, int pageNum, int pageSize) {
 		Map<String, Object> hashMap = BeanToMapUtil.objectToMapReflect(busiDept);
 		return myBatisDAO.findForPage("findBusiDeptForPages", new PageRequest(pageNum, pageSize, hashMap));
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Map<String, BusiDept> findBusiDeptMapByUuidList(List<String> list) {
+		if (CollectionUtils.isEmpty(list)) {
+			return new HashMap<>();
+		}
+		Map<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("list", list);
+		return myBatisDAO.findForMap("findBusiDeptForLists", hashMap, DEPT_UUID_MAPPER);
 	}
 
 }

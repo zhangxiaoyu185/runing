@@ -3,82 +3,108 @@ package com.xiaoyu.lingdian.entity;
 import java.util.Date;
 
 /**
-* 部门称号记录表
-* @author: zhangy
-* @since: 2018年04月09日 16:57:33
-* @history:
-*/
+ * 部门称号记录表
+ *
+ * @author: zhangy
+ * @since: 2018年04月09日 16:57:33
+ * @history:
+ */
 public class BusiDeptTitle extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-		/**标识UNID*/
-	private Integer bsdteUnid;
+    /**
+     * 标识UNID
+     */
+    private Integer bsdteUnid;
 
-		/**标识UUID*/
-	private String bsdteUuid;
+    /**
+     * 标识UUID
+     */
+    private String bsdteUuid;
 
-		/**所属部门*/
-	private String bsdteDept;
+    /**
+     * 所属部门
+     */
+    private String bsdteDept;
 
-		/**所属月*/
-	private String bsdteMonth;
+    /**
+     * 所属部门名称
+     */
+    private String bsdteDeptName;
 
-		/**获得称号*/
-	private String bsdteTitle;
+    /**
+     * 所属月
+     */
+    private String bsdteMonth;
 
-		/**创建时间*/
-	private Date bsdteCdate;
+    /**
+     * 获得称号
+     */
+    private String bsdteTitle;
 
-			public Integer getBsdteUnid() {
-		return bsdteUnid;
-	}
+    /**
+     * 创建时间
+     */
+    private Date bsdteCdate;
 
-	public void setBsdteUnid(Integer bsdteUnid) {
-		this.bsdteUnid = bsdteUnid;
-	}
+    public Integer getBsdteUnid() {
+        return bsdteUnid;
+    }
 
-		public String getBsdteUuid() {
-		return bsdteUuid;
-	}
+    public void setBsdteUnid(Integer bsdteUnid) {
+        this.bsdteUnid = bsdteUnid;
+    }
 
-	public void setBsdteUuid(String bsdteUuid) {
-		this.bsdteUuid = bsdteUuid;
-	}
+    public String getBsdteUuid() {
+        return bsdteUuid;
+    }
 
-		public String getBsdteDept() {
-		return bsdteDept;
-	}
+    public void setBsdteUuid(String bsdteUuid) {
+        this.bsdteUuid = bsdteUuid;
+    }
 
-	public void setBsdteDept(String bsdteDept) {
-		this.bsdteDept = bsdteDept;
-	}
+    public String getBsdteDept() {
+        return bsdteDept;
+    }
 
-		public String getBsdteMonth() {
-		return bsdteMonth;
-	}
+    public void setBsdteDept(String bsdteDept) {
+        this.bsdteDept = bsdteDept;
+    }
 
-	public void setBsdteMonth(String bsdteMonth) {
-		this.bsdteMonth = bsdteMonth;
-	}
+    public String getBsdteMonth() {
+        return bsdteMonth;
+    }
 
-		public String getBsdteTitle() {
-		return bsdteTitle;
-	}
+    public void setBsdteMonth(String bsdteMonth) {
+        this.bsdteMonth = bsdteMonth;
+    }
 
-	public void setBsdteTitle(String bsdteTitle) {
-		this.bsdteTitle = bsdteTitle;
-	}
+    public String getBsdteTitle() {
+        return bsdteTitle;
+    }
 
-		public Date getBsdteCdate() {
-		return bsdteCdate;
-	}
+    public void setBsdteTitle(String bsdteTitle) {
+        this.bsdteTitle = bsdteTitle;
+    }
 
-	public void setBsdteCdate(Date bsdteCdate) {
-		this.bsdteCdate = bsdteCdate;
-	}
+    public Date getBsdteCdate() {
+        return bsdteCdate;
+    }
 
-		public BusiDeptTitle() {
-	}
+    public void setBsdteCdate(Date bsdteCdate) {
+        this.bsdteCdate = bsdteCdate;
+    }
+
+    public String getBsdteDeptName() {
+        return bsdteDeptName;
+    }
+
+    public void setBsdteDeptName(String bsdteDeptName) {
+        this.bsdteDeptName = bsdteDeptName;
+    }
+
+    public BusiDeptTitle() {
+    }
 
 }
