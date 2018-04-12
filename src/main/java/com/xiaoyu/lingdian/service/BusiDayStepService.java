@@ -46,6 +46,32 @@ public interface BusiDayStepService {
 	public BusiDayStep getBusiDayStep(BusiDayStep busiDayStep);
 
 	/**
+	 * 最近七天步数，趋势
+	 * @return List
+	 */
+	public List<BusiDayStep> findBusiDayStepBySevenDay(String bsdspUser);
+
+	/**
+	 * 根据用户和日期查询
+	 * @param bsdspUser
+	 * @param bsdspDay
+	 * @return
+	 */
+	public BusiDayStep getBusiDayStepByDayAndUser(String bsdspUser, String bsdspDay);
+
+	/**
+	 * 本周步数之和
+	 * @return int
+	 */
+	public int getSumBusiDayStepByWeek(String bsdspUser);
+
+	/**
+	 * 本月步数之和
+	 * @return int
+	 */
+	public int getSumBusiDayStepByMonth(String bsdspUser);
+
+	/**
 	 * 获取下一个日期
 	 * @return List
 	 */

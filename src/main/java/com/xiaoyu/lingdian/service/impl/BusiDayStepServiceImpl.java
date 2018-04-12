@@ -57,6 +57,38 @@ public class BusiDayStepServiceImpl implements BusiDayStepService {
 		return (BusiDayStep) myBatisDAO.findForObject(busiDayStep);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<BusiDayStep> findBusiDayStepBySevenDay(String bsdspUser) {
+		Map<String, Object> hashMap = new HashMap<>();
+		hashMap.put("bsdspUser", bsdspUser);
+		return myBatisDAO.findForList("findBusiDayStepBySevenDay", hashMap);
+	}
+
+	@Override
+	public BusiDayStep getBusiDayStepByDayAndUser(String bsdspUser, String bsdspDay) {
+		Map<String, Object> hashMap = new HashMap<>();
+		hashMap.put("bsdspUser", bsdspUser);
+		hashMap.put("bsdspDay", bsdspDay);
+		return (BusiDayStep) myBatisDAO.findForObject("getBusiDayStepByDayAndUser", hashMap);
+	}
+
+	@Override
+	public int getSumBusiDayStepByWeek(String bsdspUser) {
+		Map<String, Object> hashMap = new HashMap<>();
+		hashMap.put("bsdspUser", bsdspUser);
+		Integer sum = (Integer) myBatisDAO.findForObject("getSumBusiDayStepByWeek", hashMap);
+		return sum == null ? 0 : sum;
+	}
+
+	@Override
+	public int getSumBusiDayStepByMonth(String bsdspUser) {
+		Map<String, Object> hashMap = new HashMap<>();
+		hashMap.put("bsdspUser", bsdspUser);
+		Integer sum = (Integer) myBatisDAO.findForObject("getSumBusiDayStepByMonth", hashMap);
+		return sum == null ? 0 : sum;
+	}
+
 	@Override
 	public BusiDayStep getBusiDayStepByOrd(String bsdspDay) {
 		Map<String, Object> hashMap = new HashMap<>();

@@ -30,6 +30,12 @@ public class BusiDeptVO implements BaseVO {
     private String bsdetName;
 
     /**
+     * 部门称号
+     */
+    @ApiModelProperty(value = "部门称号")
+    private String bsdetTitle;
+
+    /**
      * 创建时间
      */
     @ApiModelProperty(value = "创建时间")
@@ -73,6 +79,14 @@ public class BusiDeptVO implements BaseVO {
         this.bsdetUdate = bsdetUdate;
     }
 
+    public String getBsdetTitle() {
+        return bsdetTitle;
+    }
+
+    public void setBsdetTitle(String bsdetTitle) {
+        this.bsdetTitle = bsdetTitle;
+    }
+
     public BusiDeptVO() {
     }
 
@@ -85,6 +99,7 @@ public class BusiDeptVO implements BaseVO {
         BusiDept po = (BusiDept) poObj;
         this.bsdetUuid = po.getBsdetUuid();
         this.bsdetName = po.getBsdetName();
+        this.bsdetTitle = po.getBsdetTitle();
         this.bsdetCdate = po.getBsdetCdate();
         this.bsdetUdate = po.getBsdetUdate();
     }

@@ -29,6 +29,11 @@ public class BusiDept extends BaseEntity {
     private String bsdetName;
 
     /**
+     * 部门称号
+     */
+    private String bsdetTitle;
+
+    /**
      * 创建时间
      */
     private Date bsdetCdate;
@@ -76,6 +81,14 @@ public class BusiDept extends BaseEntity {
 
     public void setBsdetUdate(Date bsdetUdate) {
         this.bsdetUdate = bsdetUdate;
+    }
+
+    public String getBsdetTitle() {
+        return bsdetTitle;
+    }
+
+    public void setBsdetTitle(String bsdetTitle) {
+        this.bsdetTitle = bsdetTitle;
     }
 
     public BusiDept() {

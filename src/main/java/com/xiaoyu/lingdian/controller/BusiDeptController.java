@@ -212,7 +212,7 @@ public class BusiDeptController extends BaseController {
     @ApiOperation(value = "获取部门分页列表", httpMethod = "POST", notes = "获取部门分页列表", response = BusiDeptVO.class)
     @RequestMapping(value = "/find/by/cnd", method = RequestMethod.POST)
     public void findBusiDeptPage(
-            @ApiParam(value = "部门名称", required = true) @RequestParam(value = "bsdetName", required = true) String bsdetName,
+            @ApiParam(value = "部门名称", required = false) @RequestParam(value = "bsdetName", required = false) String bsdetName,
             @ApiParam(value = "第几页", required = false) @RequestParam(value = "pageNum", required = false) Integer pageNum,
             @ApiParam(value = "每页数量", required = false) @RequestParam(value = "pageSize", required = false) Integer pageSize,
             HttpServletResponse response) {

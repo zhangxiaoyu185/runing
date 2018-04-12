@@ -18,8 +18,6 @@ function getInfo(id) {
         fn: function (oData) {
             if (oData.code == 1) {
                 $(".bsdetName").val(oData.data.bsdetName || "");
-                $(".bsdetCdate").val(oData.data.bsdetCdate || "");
-                $(".bsdetUdate").val(oData.data.bsdetUdate || "");
             } else {
                 alert(oData.errMsg);
             }
@@ -32,16 +30,6 @@ function checkModify() {
     if ($.trim($(".bsdetName").val()) == "") {
         alert("部门名称不能为空，请填写完再提交！");
         $(".bsdetName").focus();
-        return false;
-    }
-    if ($.trim($(".bsdetCdate").val()) == "") {
-        alert("创建时间不能为空，请填写完再提交！");
-        $(".bsdetCdate").focus();
-        return false;
-    }
-    if ($.trim($(".bsdetUdate").val()) == "") {
-        alert("更新时间不能为空，请填写完再提交！");
-        $(".bsdetUdate").focus();
         return false;
     }
 
@@ -62,12 +50,8 @@ function checkModify() {
 function Modify(msgObject) {
     var bsdetUuid = getQueryString("id");
     var bsdetName = $(".bsdetName").val();
-    var bsdetCdate = $(".bsdetCdate").val();
-    var bsdetUdate = $(".bsdetUdate").val();
     var str = 'bsdetUuid=' + encodeURIComponent(bsdetUuid)
-        + '&bsdetName=' + encodeURIComponent(bsdetName)
-        + '&bsdetCdate=' + encodeURIComponent(bsdetCdate)
-        + '&bsdetUdate=' + encodeURIComponent(bsdetUdate);
+        + '&bsdetName=' + encodeURIComponent(bsdetName);
     getOData(str, "busiDept/update/busiDept", {
         fn: function (oData) {
             window.parent.refreshList();

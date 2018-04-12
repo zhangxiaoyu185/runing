@@ -5,10 +5,6 @@ $(function () {
     var strhtml_searchContent = '<div class="inline-block margin">'
         + '<span>部门名称:</span>'
         + '<input type="text" class="inputStyle_condition bsdetName"/>'
-        + '<span>创建时间:</span>'
-        + '<input type="text" class="inputStyle_condition bsdetCdate"/>'
-        + '<span>更新时间:</span>'
-        + '<input type="text" class="inputStyle_condition bsdetUdate"/>'
         + '</div>';
     $(".searchContent").html(strhtml_searchContent);
     //是否显示查询条件
@@ -18,18 +14,6 @@ $(function () {
     searchContent(obj);
     showList(obj, 1);
 
-    //详情
-    $("body").delegate('.detailit', 'click', function () {
-        layer.open({
-            type: 2,
-            title: '详情',
-            scrollbar: false,
-            maxmin: true,
-            shadeClose: false, //点击遮罩关闭层
-            area: [widthLayer, heightLayer],
-            content: '../dept/busidept_detail?id=' + $(this).attr("data-id") + '&timestamp=' + (new Date()).valueOf()
-        });
-    });
     //新增
     $('.addit').on('click', function () {
         layer.open({
@@ -39,7 +23,7 @@ $(function () {
             maxmin: true,
             shadeClose: false, //点击遮罩关闭层
             area: [widthLayer, heightLayer],
-            content: '../dept/busidept_add?timestamp=' + (new Date()).valueOf()
+            content: '../dept/busidept_add.html?timestamp=' + (new Date()).valueOf()
         });
     });
     //修改
@@ -51,7 +35,7 @@ $(function () {
             maxmin: true,
             shadeClose: false, //点击遮罩关闭层
             area: [widthLayer, heightLayer],
-            content: '../dept/busidept_modify?id=' + $(this).attr("data-id") + '&timestamp=' + (new Date()).valueOf()
+            content: '../dept/busidept_modify.html?id=' + $(this).attr("data-id") + '&timestamp=' + (new Date()).valueOf()
         });
     });
     //全选
@@ -150,8 +134,6 @@ $(function () {
     $("body").delegate(".resetBtn", "click", function () {
         var obj = {};//查询条件对象
         $(".bsdetName").val('');
-        $(".bsdetCdate").val('');
-        $(".bsdetUdate").val('');
         searchContent(obj);
         showList(obj, 1);
     });
@@ -199,20 +181,14 @@ $(function () {
 
 function showList(obj, pagenum) {
     var aData = [{name: "<input type='checkbox' name='checkboxAll' value='checkbox' />", percent: "5"},
-        {name: "部门名称", percent: "10"},
-        {name: "创建时间", percent: "10"},
-        {name: "更新时间", percent: "10"},
-        {name: "操作", percent: "10"}];
+        {name: "部门名称", percent: "25"},
+        {name: "部门称号", percent: "25"},
+        {name: "更新时间", percent: "20"},
+        {name: "操作", percent: "25"}];
     setTableHead(aData);
     var str = 'pageNum=' + pagenum + '&pageSize=15';
     if (obj.bsdetName != "") {
         str += '&bsdetName=' + encodeURIComponent(obj.bsdetName);
-    }
-    if (obj.bsdetCdate != "") {
-        str += '&bsdetCdate=' + encodeURIComponent(obj.bsdetCdate);
-    }
-    if (obj.bsdetUdate != "") {
-        str += '&bsdetUdate=' + encodeURIComponent(obj.bsdetUdate);
     }
     getOData(str, "busiDept/find/by/cnd", {
             fn: function (oData) {
@@ -223,10 +199,9 @@ function showList(obj, pagenum) {
                     strhtml_list += '<tr class="trHighLight">'
                         + '<td>' + '<input type="checkbox" name="checkbox" value="checkbox" data-id="' + arrData[i].bsdetUuid + '"/>' + '</td>'
                         + '<td>' + (arrData[i].bsdetName || "") + '</td>'
-                        + '<td>' + (arrData[i].bsdetCdate || "") + '</td>'
-                        + '<td>' + (arrData[i].bsdetUdate || "") + '</td>'
+                        + '<td>' + (arrData[i].bsdetTitle || "") + '</td>'
+                        + '<td>' + (getFormatDate(arrData[i].bsdetUdate) || "") + '</td>'
                         + '<td>'
-                        + '<a  class="p-edit detailit" data-id="' + arrData[i].bsdetUuid + '">查看</a>'
                         + '<a  class="p-edit modifyit" data-id="' + arrData[i].bsdetUuid + '">修改</a>'
                         + '<a  class="p-edit delit" data-id="' + arrData[i].bsdetUuid + '">删除</a>'
                         + '</td>'
@@ -243,12 +218,6 @@ function isNull(obj, pagenum) {
     var str = 'pageNum=' + pagenum + '&pageSize=15';
     if (obj.bsdetName != "") {
         str += '&bsdetName=' + encodeURIComponent(obj.bsdetName);
-    }
-    if (obj.bsdetCdate != "") {
-        str += '&bsdetCdate=' + encodeURIComponent(obj.bsdetCdate);
-    }
-    if (obj.bsdetUdate != "") {
-        str += '&bsdetUdate=' + encodeURIComponent(obj.bsdetUdate);
     }
     getOData(str, "busiDept/find/by/cnd", {
         fn: function (oData) {
@@ -276,6 +245,4 @@ function refreshList() {
 
 function searchContent(obj) {
     obj.bsdetName = $(".bsdetName").val();
-    obj.bsdetCdate = $(".bsdetCdate").val();
-    obj.bsdetUdate = $(".bsdetUdate").val();
 }

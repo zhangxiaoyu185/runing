@@ -6,6 +6,7 @@ import com.xiaoyu.lingdian.entity.*;
 import com.xiaoyu.lingdian.entity.weixin.SopenidAndUnionid;
 import com.xiaoyu.lingdian.enums.StatusEnum;
 import com.xiaoyu.lingdian.service.*;
+import com.xiaoyu.lingdian.tool.DateUtil;
 import com.xiaoyu.lingdian.tool.http.HttpUrlConnectionUtil;
 import com.xiaoyu.lingdian.tool.wx.WeixinSUtil;
 import io.swagger.annotations.Api;
@@ -56,6 +57,12 @@ public class CoreUserController extends BaseController {
     private BusiDayStepService busiDayStepService;
 
     /**
+     * 部门表
+     */
+    @Autowired
+    private BusiDeptService busiDeptService;
+
+    /**
      * 获取号码归属地
      *
      * @param mobileTel 手机号码
@@ -92,6 +99,7 @@ public class CoreUserController extends BaseController {
      * 注册打开小程序的时候，后台根据openid判断是注册还是登陆进行相应操作，成功后返回用户信息；
      *
      * @param openid            授权OPENID
+     * @param sessionKey       sessionKey
      * @param crusrWxNickname   微信用户的昵称
      * @param crusrWxSex        微信用户的性别，值为1时是男性，值为2时是女性，值为0时是未知
      * @param crusrWxHeadimgurl 微信用户头像
@@ -101,6 +109,7 @@ public class CoreUserController extends BaseController {
     @ApiOperation(value = "(前台调用)注册登陆", httpMethod = "POST", notes = "(前台调用)注册登陆")
     public void index(
             @ApiParam(value = "授权OPENID", required = true) @RequestParam(value = "openid", required = true) String openid,
+            @ApiParam(value = "sessionKey", required = true) @RequestParam(value = "sessionKey", required = true) String sessionKey,
             @ApiParam(value = "微信用户的昵称", required = true) @RequestParam(value = "crusrWxNickname", required = true) String crusrWxNickname,
             @ApiParam(value = "微信用户的性别，值为1时是男性，值为2时是女性，值为0时是未知", required = true) @RequestParam(value = "crusrWxSex", required = true) String crusrWxSex,
             @ApiParam(value = "微信用户头像", required = false) @RequestParam(value = "crusrWxHeadimgurl", required = false) String crusrWxHeadimgurl,
@@ -135,6 +144,7 @@ public class CoreUserController extends BaseController {
             coreUser.setCrusrGender(Integer.valueOf(crusrWxSex));
             coreUser.setCrusrWxSex(crusrWxSex);
             coreUser.setCrusrOpenid(openid);
+            coreUser.setCrusrSessionKey(sessionKey);
             coreUser.setCrusrWxNickname(crusrWxNickname);
             coreUser.setCrusrWxHeadimgurl(crusrWxHeadimgurl);
             coreUserService.insertCoreUser(coreUser);
@@ -148,6 +158,7 @@ public class CoreUserController extends BaseController {
             coreUser.setCrusrWxSex(crusrWxSex);
             coreUser.setCrusrWxNickname(crusrWxNickname);
             coreUser.setCrusrWxHeadimgurl(crusrWxHeadimgurl);
+            coreUser.setCrusrSessionKey(sessionKey);
             coreUserService.updateCoreUserByOpenid(coreUser);
         }
         CoreUserVO vo = new CoreUserVO();
@@ -158,13 +169,13 @@ public class CoreUserController extends BaseController {
     }
 
     /**
-     * 传code获取openid，后台返回openid
+     * 传code获取openid，后台返回openid和session_key
      *
      * @param code     登录凭证code
      * @param response
      */
     @RequestMapping(value = "/get/openid", method = RequestMethod.GET)
-    @ApiOperation(value = "(前台调用)获取openid", httpMethod = "GET", notes = "(前台调用)获取openid")
+    @ApiOperation(value = "(前台调用)获取openid和session_key", httpMethod = "GET", notes = "(前台调用)获取openid和session_key")
     public void getOpenid(
             @ApiParam(value = "登录凭证code", required = true) @RequestParam(value = "code", required = true) String code,
             HttpServletResponse response) {
@@ -184,7 +195,7 @@ public class CoreUserController extends BaseController {
             logger.info("[CoreUserController.getOpenid]:end getOpenid");
             return;
         } else {
-            writeAjaxJSONResponse(ResultMessageBuilder.build(true, 1, "获取成功", sopenidAndUnionid.getOpenid()), response);
+            writeAjaxJSONResponse(ResultMessageBuilder.build(true, 1, "获取成功", sopenidAndUnionid), response);
             logger.info("[CoreUserController.getOpenid]:end getOpenid.");
         }
     }
@@ -332,9 +343,29 @@ public class CoreUserController extends BaseController {
         CoreUserVO coreUserVO = new CoreUserVO();
         coreUserVO.convertPOToVO(coreUser);
 
-        //busiDayStepService
+        BusiDayStep nowbusiDayStep = busiDayStepService.getBusiDayStepByDayAndUser(DateUtil.getToday(DateUtil.DEFAULT_PATTERN), crusrUuid);
+        int monthsum = busiDayStepService.getSumBusiDayStepByMonth(crusrUuid);
+        int weeksum = busiDayStepService.getSumBusiDayStepByWeek(crusrUuid);
+        List<BusiDayStep> list = busiDayStepService.findBusiDayStepBySevenDay(crusrUuid);
 
-        writeAjaxJSONResponse(ResultMessageBuilder.build(true, 1, "获取单个信息成功", coreUserVO), response);
+        Map<String, Object> map = new HashMap<>();
+        if(null != nowbusiDayStep) {
+            map.put("daysum", nowbusiDayStep.getBsdspStep());
+        }
+        map.put("monthsum", monthsum);
+        map.put("weeksum", weeksum);
+        map.put("qsList", list);
+        map.put("userVo", coreUserVO);
+        if(!StringUtil.isEmpty(coreUser.getCrusrDept())) {
+            BusiDept busiDept = new BusiDept();
+            busiDept.setBsdetUuid(coreUser.getCrusrDept());
+            busiDept = busiDeptService.getBusiDept(busiDept);
+            if(busiDept != null) {
+                map.put("deptTitle", busiDept.getBsdetTitle());
+            }
+        }
+
+        writeAjaxJSONResponse(ResultMessageBuilder.build(true, 1, "获取我的个人中心信息成功", map), response);
         logger.info("[CoreUserController]:end myCenter");
     }
 
@@ -390,11 +421,24 @@ public class CoreUserController extends BaseController {
         }
         Page<CoreUser> page = coreUserService.findCoreUserPage(coreUser, pageNum, pageSize);
         Page<CoreUserVO> pageVO = new Page<CoreUserVO>(page.getPageNumber(), page.getPageSize(), page.getTotalCount());
+
+        HashSet<String> hashDeptUuids = new HashSet<String>();
+        for (CoreUser coreUserPO : page.getResult()) {
+            if(!StringUtil.isEmpty(coreUserPO.getCrusrDept())) {
+                hashDeptUuids.add(coreUserPO.getCrusrDept());
+            }
+        }
+        List<String> deptUuids = new ArrayList<>(hashDeptUuids);
+        Map<String, BusiDept> deptMap = busiDeptService.findBusiDeptMapByUuidList(deptUuids);
+
         List<CoreUserVO> vos = new ArrayList<CoreUserVO>();
         CoreUserVO vo;
         for (CoreUser coreUserPO : page.getResult()) {
             vo = new CoreUserVO();
             vo.convertPOToVO(coreUserPO);
+            if(!StringUtil.isEmpty(coreUserPO.getCrusrDept())) {
+                vo.setCrusrDeptName(deptMap.get(coreUserPO.getCrusrDept()) == null ? null : deptMap.get(coreUserPO.getCrusrDept()).getBsdetName());
+            }
             vos.add(vo);
         }
         pageVO.setResult(vos);

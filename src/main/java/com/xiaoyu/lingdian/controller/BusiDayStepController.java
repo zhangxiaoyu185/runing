@@ -157,7 +157,7 @@ public class BusiDayStepController extends BaseController {
         map.put("bsdspDay", oldbusiDayStep.getBsdspDay());
         map.put("list", vos);
 
-        writeAjaxJSONResponse(ResultMessageBuilder.build(true, 1, "日步数排行榜获取成功!", vos), response);
+        writeAjaxJSONResponse(ResultMessageBuilder.build(true, 1, "日步数排行榜获取成功!", map), response);
         logger.info("[BusiDayStepController]:end findBusiDayStepForDayChat");
     }
 

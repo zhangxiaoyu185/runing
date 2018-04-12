@@ -9,8 +9,6 @@ $(function () {
 //初始化
 function initAdd() {
     $(".bsdetName").val("");
-    $(".bsdetCdate").val("");
-    $(".bsdetUdate").val("");
 }
 
 //检查提交
@@ -18,16 +16,6 @@ function checkAdd() {
     if ($.trim($(".bsdetName").val()) == "") {
         alert("部门名称不能为空，请填写完再提交！");
         $(".bsdetName").focus();
-        return false;
-    }
-    if ($.trim($(".bsdetCdate").val()) == "") {
-        alert("创建时间不能为空，请填写完再提交！");
-        $(".bsdetCdate").focus();
-        return false;
-    }
-    if ($.trim($(".bsdetUdate").val()) == "") {
-        alert("更新时间不能为空，请填写完再提交！");
-        $(".bsdetUdate").focus();
         return false;
     }
 
@@ -48,12 +36,8 @@ function checkAdd() {
 //提交
 function Add(msgObject) {
     var bsdetName = $(".bsdetName").val();
-    var bsdetCdate = $(".bsdetCdate").val();
-    var bsdetUdate = $(".bsdetUdate").val();
     var str = '';
-    str += '&bsdetName=' + encodeURIComponent(bsdetName)
-    str += '&bsdetCdate=' + encodeURIComponent(bsdetCdate)
-    str += '&bsdetUdate=' + encodeURIComponent(bsdetUdate);
+    str += '&bsdetName=' + encodeURIComponent(bsdetName);
     getOData(str, "busiDept/add/busiDept", {
         fn: function (oData) {
             window.parent.refreshList();

@@ -127,6 +127,7 @@ public class BusiDayStepVO implements BaseVO {
         BusiDayStep po = (BusiDayStep) poObj;
         this.bsdspUuid = po.getBsdspUuid();
         this.bsdspUser = po.getBsdspUser();
+        this.bsdspUserName = po.getBsdspUserName();
         this.bsdspCdate = po.getBsdspCdate();
         this.bsdspDay = po.getBsdspDay();
         this.bsdspStep = po.getBsdspStep();

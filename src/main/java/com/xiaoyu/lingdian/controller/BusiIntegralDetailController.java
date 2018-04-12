@@ -1,5 +1,6 @@
 package com.xiaoyu.lingdian.controller;
 
+import com.xiaoyu.lingdian.entity.CoreUser;
 import com.xiaoyu.lingdian.service.CoreUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -63,7 +64,20 @@ public class BusiIntegralDetailController extends BaseController {
             @ApiParam(value = "操作人", required = false) @RequestParam(value = "bsidlOper", required = false) String bsidlOper,
             HttpServletResponse response) {
         logger.info("[BusiIntegralDetailController]:begin addBusiIntegralDetail");
+        CoreUser coreUser = new CoreUser();
+        coreUser.setCrusrUuid(bsidlUser);
+        coreUser = coreUserService.getCoreUser(coreUser);
+        if(null == coreUser) {
+            writeAjaxJSONResponse(ResultMessageBuilder.build(false, -1, "用户不存在!"), response);
+            logger.info("[BusiIntegralDetailController]:end addBusiIntegralDetail");
+            return;
+        }
         if(bsidlDire == 2) {
+            if(bsidlNum > coreUser.getCrusrIntegral()) {
+                writeAjaxJSONResponse(ResultMessageBuilder.build(false, -1, "用户积分不足!"), response);
+                logger.info("[BusiIntegralDetailController]:end addBusiIntegralDetail");
+                return;
+            }
             coreUserService.updateCoreUserByIntegral(bsidlUser, -bsidlNum);
         } else {
             coreUserService.updateCoreUserByIntegral(bsidlUser, bsidlNum);
@@ -124,9 +138,9 @@ public class BusiIntegralDetailController extends BaseController {
     @ApiOperation(value = "获取积分明细分页列表", httpMethod = "POST", notes = "获取积分明细分页列表", response = BusiIntegralDetailVO.class)
     @RequestMapping(value = "/find/by/cnd", method = RequestMethod.POST)
     public void findBusiIntegralDetailPage(
-            @ApiParam(value = "增减方向(1增2减)", required = true) @RequestParam(value = "bsidlDire", required = true) Integer bsidlDire,
-            @ApiParam(value = "用户昵称", required = true) @RequestParam(value = "name", required = true) String name,
-            @ApiParam(value = "备注", required = true) @RequestParam(value = "bsidlRemark", required = true) String bsidlRemark,
+            @ApiParam(value = "增减方向(1增2减)", required = false) @RequestParam(value = "bsidlDire", required = false) Integer bsidlDire,
+            @ApiParam(value = "用户昵称", required = false) @RequestParam(value = "name", required = false) String name,
+            @ApiParam(value = "备注", required = false) @RequestParam(value = "bsidlRemark", required = false) String bsidlRemark,
             @ApiParam(value = "第几页", required = false) @RequestParam(value = "pageNum", required = false) Integer pageNum,
             @ApiParam(value = "每页数量", required = false) @RequestParam(value = "pageSize", required = false) Integer pageSize,
             HttpServletResponse response) {

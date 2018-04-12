@@ -173,7 +173,7 @@ public class BusiWeekStepController extends BaseController {
         map.put("bswspWeek", oldbusiWeekStep.getBswspMonth()+"-"+oldbusiWeekStep.getBswspWeek());
         map.put("list", vos);
 
-        writeAjaxJSONResponse(ResultMessageBuilder.build(true, 1, "周步数排行榜获取成功!", vos), response);
+        writeAjaxJSONResponse(ResultMessageBuilder.build(true, 1, "周步数排行榜获取成功!", map), response);
         logger.info("[BusiWeekStepController]:end findBusiWeekStepForWeekChat");
     }
 

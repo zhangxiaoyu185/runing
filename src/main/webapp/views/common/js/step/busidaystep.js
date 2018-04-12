@@ -3,14 +3,10 @@ $(function () {
 
     //查询条件
     var strhtml_searchContent = '<div class="inline-block margin">'
-        + '<span>所属用户:</span>'
-        + '<input type="text" class="inputStyle_condition bsdspUser"/>'
-        + '<span>创建时间:</span>'
-        + '<input type="text" class="inputStyle_condition bsdspCdate"/>'
-        + '<span>所属日期:</span>'
+        + '<span>用户昵称:</span>'
+        + '<input type="text" class="inputStyle_condition name"/>'
+        + '<span>日期:</span>'
         + '<input type="text" class="inputStyle_condition bsdspDay"/>'
-        + '<span>步数:</span>'
-        + '<input type="text" class="inputStyle_condition bsdspStep"/>'
         + '</div>';
     $(".searchContent").html(strhtml_searchContent);
     //是否显示查询条件
@@ -20,42 +16,6 @@ $(function () {
     searchContent(obj);
     showList(obj, 1);
 
-    //详情
-    $("body").delegate('.detailit', 'click', function () {
-        layer.open({
-            type: 2,
-            title: '详情',
-            scrollbar: false,
-            maxmin: true,
-            shadeClose: false, //点击遮罩关闭层
-            area: [widthLayer, heightLayer],
-            content: '../step/busidaystep_detail?id=' + $(this).attr("data-id") + '&timestamp=' + (new Date()).valueOf()
-        });
-    });
-    //新增
-    $('.addit').on('click', function () {
-        layer.open({
-            type: 2,
-            title: '新增',
-            scrollbar: false,
-            maxmin: true,
-            shadeClose: false, //点击遮罩关闭层
-            area: [widthLayer, heightLayer],
-            content: '../step/busidaystep_add?timestamp=' + (new Date()).valueOf()
-        });
-    });
-    //修改
-    $("body").delegate('.modifyit', 'click', function () {
-        layer.open({
-            type: 2,
-            title: '修改',
-            scrollbar: false,
-            maxmin: true,
-            shadeClose: false, //点击遮罩关闭层
-            area: [widthLayer, heightLayer],
-            content: '../step/busidaystep_modify?id=' + $(this).attr("data-id") + '&timestamp=' + (new Date()).valueOf()
-        });
-    });
     //全选
     $("body").delegate("input[name='checkboxAll']", "click", function () {
         if ($(this).attr("checked")) {
@@ -66,52 +26,6 @@ $(function () {
             $("input[name='checkbox']").each(function () {
                 $(this).removeAttr("checked");
             });
-        }
-    });
-
-    //批量删除
-    $("body").delegate(".delthese", "click", function () {
-        var ids = '';
-        $("input[name='checkbox']").each(function () {
-            if ($(this).attr("checked")) {
-                ids += $(this).attr("data-id") + "|";
-            }
-        });
-        if (ids == "") {
-            alert("未选择删除对象！");
-        } else {
-            var r = confirm("是否确认删除所选的记录？");
-            if (r == true) {
-                var str = 'bsdspUuids=' + encodeURIComponent(ids);
-                getOData(str, "busiDayStep/delete/batch", {
-                        fn: function (oData) {
-                            var obj = {};//查询条件对象
-                            searchContent(obj);
-                            pagenum = parseInt($(".curpage").text());
-                            isNull(obj, pagenum);
-                            alert("删除成功！");
-                        }
-                    }
-                );
-            }
-        }
-    });
-
-    //删除
-    $("body").delegate(".delit", "click", function () {
-        var r = confirm("是否确认删除？");
-        if (r == true) {
-            var str = 'bsdspUuid=' + encodeURIComponent($(this).attr("data-id"));
-            getOData(str, "busiDayStep/delete/one", {
-                    fn: function (oData) {
-                        var obj = {};//查询条件对象
-                        searchContent(obj);
-                        pagenum = parseInt($(".curpage").text());
-                        isNull(obj, pagenum);
-                        alert("删除成功！");
-                    }
-                }
-            );
         }
     });
     //tr高亮显示
@@ -151,10 +65,8 @@ $(function () {
     //重置
     $("body").delegate(".resetBtn", "click", function () {
         var obj = {};//查询条件对象
-        $(".bsdspUser").val('');
-        $(".bsdspCdate").val('');
+        $(".name").val('');
         $(".bsdspDay").val('');
-        $(".bsdspStep").val('');
         searchContent(obj);
         showList(obj, 1);
     });
@@ -202,24 +114,17 @@ $(function () {
 
 function showList(obj, pagenum) {
     var aData = [{name: "<input type='checkbox' name='checkboxAll' value='checkbox' />", percent: "5"},
-        {name: "所属用户", percent: "10"},
-        {name: "创建时间", percent: "10"},
-        {name: "所属日期", percent: "10"},
-        {name: "步数", percent: "10"},
-        {name: "操作", percent: "10"}];
+        {name: "用户昵称", percent: "30"},
+        {name: "创建时间", percent: "20"},
+        {name: "日期", percent: "20"},
+        {name: "步数", percent: "25"}];
     setTableHead(aData);
     var str = 'pageNum=' + pagenum + '&pageSize=15';
-    if (obj.bsdspUser != "") {
-        str += '&bsdspUser=' + encodeURIComponent(obj.bsdspUser);
-    }
-    if (obj.bsdspCdate != "") {
-        str += '&bsdspCdate=' + encodeURIComponent(obj.bsdspCdate);
+    if (obj.name != "") {
+        str += '&name=' + encodeURIComponent(obj.name);
     }
     if (obj.bsdspDay != "") {
         str += '&bsdspDay=' + encodeURIComponent(obj.bsdspDay);
-    }
-    if (obj.bsdspStep != "") {
-        str += '&bsdspStep=' + encodeURIComponent(obj.bsdspStep);
     }
     getOData(str, "busiDayStep/find/by/cnd", {
             fn: function (oData) {
@@ -229,15 +134,10 @@ function showList(obj, pagenum) {
                 for (var i = 0; i < ln; i++) {
                     strhtml_list += '<tr class="trHighLight">'
                         + '<td>' + '<input type="checkbox" name="checkbox" value="checkbox" data-id="' + arrData[i].bsdspUuid + '"/>' + '</td>'
-                        + '<td>' + (arrData[i].bsdspUser || "") + '</td>'
-                        + '<td>' + (arrData[i].bsdspCdate || "") + '</td>'
+                        + '<td>' + (arrData[i].bsdspUserName || "") + '</td>'
+                        + '<td>' + (getFormatDate(arrData[i].bsdspCdate) || "") + '</td>'
                         + '<td>' + (arrData[i].bsdspDay || "") + '</td>'
-                        + '<td>' + (arrData[i].bsdspStep || "") + '</td>'
-                        + '<td>'
-                        + '<a  class="p-edit detailit" data-id="' + arrData[i].bsdspUuid + '">查看</a>'
-                        + '<a  class="p-edit modifyit" data-id="' + arrData[i].bsdspUuid + '">修改</a>'
-                        + '<a  class="p-edit delit" data-id="' + arrData[i].bsdspUuid + '">删除</a>'
-                        + '</td>'
+                        + '<td>' + (arrData[i].bsdspStep || 0) + '</td>'
                         + '</tr>';
                 }
                 $(".tb-body").html(strhtml_list);
@@ -249,17 +149,11 @@ function showList(obj, pagenum) {
 
 function isNull(obj, pagenum) {
     var str = 'pageNum=' + pagenum + '&pageSize=15';
-    if (obj.bsdspUser != "") {
-        str += '&bsdspUser=' + encodeURIComponent(obj.bsdspUser);
-    }
-    if (obj.bsdspCdate != "") {
-        str += '&bsdspCdate=' + encodeURIComponent(obj.bsdspCdate);
+    if (obj.name != "") {
+        str += '&name=' + encodeURIComponent(obj.name);
     }
     if (obj.bsdspDay != "") {
         str += '&bsdspDay=' + encodeURIComponent(obj.bsdspDay);
-    }
-    if (obj.bsdspStep != "") {
-        str += '&bsdspStep=' + encodeURIComponent(obj.bsdspStep);
     }
     getOData(str, "busiDayStep/find/by/cnd", {
         fn: function (oData) {
@@ -286,8 +180,6 @@ function refreshList() {
 }
 
 function searchContent(obj) {
-    obj.bsdspUser = $(".bsdspUser").val();
-    obj.bsdspCdate = $(".bsdspCdate").val();
+    obj.name = $(".name").val();
     obj.bsdspDay = $(".bsdspDay").val();
-    obj.bsdspStep = $(".bsdspStep").val();
 }
