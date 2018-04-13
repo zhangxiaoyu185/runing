@@ -1,7 +1,6 @@
 package com.xiaoyu.lingdian.controller;
 
 import com.xiaoyu.lingdian.constant.BaseConstant;
-import com.xiaoyu.lingdian.tool.encrypt.SecretUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -98,31 +97,6 @@ public class CoreWechatController extends BaseController {
 
         writeAjaxJSONResponse(ResultMessageBuilder.build(true, 1, "获取单个信息成功", coreWechatVO), response);
         logger.info("[CoreWechatController]:end viewsCoreWechat");
-    }
-
-    /**
-
-     * 获取微信运动数据
-
-     *@paramencryptedData
-
-     *@paramiv
-
-     *@paramsessionThirdKey
-
-     *@return
-
-     *@throwsException
-
-     */
-    @RequestMapping(value ="/getWeRunData",method = RequestMethod.POST)
-
-    public String getWeRunData(String encryptedData,String iv,String appId, String sessionKey) throws Exception {
-
-        String result= SecretUtils.AES128CBCdecrypt(encryptedData,iv,appId,sessionKey);
-
-        return result;
-
     }
 
 }

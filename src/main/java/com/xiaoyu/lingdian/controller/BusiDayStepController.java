@@ -1,13 +1,18 @@
 package com.xiaoyu.lingdian.controller;
 
+import com.xiaoyu.lingdian.constant.BaseConstant;
 import com.xiaoyu.lingdian.entity.CoreUser;
+import com.xiaoyu.lingdian.entity.CoreWechat;
 import com.xiaoyu.lingdian.service.CoreUserService;
+import com.xiaoyu.lingdian.service.CoreWechatService;
 import com.xiaoyu.lingdian.tool.DateUtil;
 import com.xiaoyu.lingdian.tool.StringUtil;
+import com.xiaoyu.lingdian.tool.encrypt.SecretUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import com.xiaoyu.lingdian.service.BusiDayStepService;
@@ -16,6 +21,8 @@ import com.xiaoyu.lingdian.entity.BusiDayStep;
 import com.xiaoyu.lingdian.tool.RandomUtil;
 import com.xiaoyu.lingdian.tool.out.ResultMessageBuilder;
 import com.xiaoyu.lingdian.vo.BusiDayStepVO;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
@@ -44,6 +51,88 @@ public class BusiDayStepController extends BaseController {
      */
     @Autowired
     private CoreUserService coreUserService;
+
+    /**
+     * 小程序表
+     */
+    @Autowired
+    private CoreWechatService coreWechatService;
+
+    /**
+     * 获取微信运动数据
+     * @param encryptedData
+     * @param iv
+     * @param sessionKey
+     * @param userUuid
+     * @return
+     */
+    @RequestMapping(value ="/getWeRunData",method = RequestMethod.POST)
+    public void getWeRunData(
+            String encryptedData,
+            String iv,
+            String sessionKey,
+            String userUuid,
+            HttpServletResponse response) {
+        if(StringUtil.isEmpty(encryptedData) || StringUtil.isEmpty(iv) || StringUtil.isEmpty(sessionKey) || StringUtil.isEmpty(userUuid)) {
+            writeAjaxJSONResponse(ResultMessageBuilder.build(false, -1, "同步失败!"), response);
+            logger.info("[BusiDayStepController]:end getWeRunData");
+            return;
+        }
+        CoreWechat coreWechat = new CoreWechat();
+        coreWechat.setCrwctUuid(BaseConstant.WE_CHAT_UUID);
+        coreWechat = coreWechatService.getCoreWechat(coreWechat);
+        if (null == coreWechat) {
+            writeAjaxJSONResponse(ResultMessageBuilder.build(false, -1, "小程序账号不存在!"), response);
+            logger.info("[BusiDayStepController]:end getWeRunData");
+            return;
+        }
+        try {
+            String result = SecretUtils.AES128CBCdecrypt(encryptedData, iv, coreWechat.getCrwctAppid(), sessionKey);
+            if(!StringUtil.isEmpty(result)){
+                JSONObject obj = JSONObject.fromObject(result);
+                JSONArray stepInfoList = obj.getJSONArray("stepInfoList");
+                if(null != stepInfoList && stepInfoList.size() > 0) {
+                    String nowday = DateUtil.getToday(DateUtil.DEFAULT_PATTERN);
+                    String yesterday = DateUtil.getYesterday(DateUtil.DEFAULT_PATTERN);
+                    for(int i=0; i<stepInfoList.size(); i++){
+                        // 遍历 jsonarray 数组，把每一个对象转成 json 对象
+                        JSONObject job = stepInfoList.getJSONObject(i);
+                        long millis = job.getLong("timestamp");
+                        int step = job.getInt("step");
+                        String valueday = new SimpleDateFormat(DateUtil.DEFAULT_PATTERN, Locale.CHINA).format(new Date(millis*1000));
+                        if(nowday.equals(valueday) || yesterday.equals(valueday)) {
+                            //判断数据库数据是否存在
+                            BusiDayStep busiDayStep = busiDayStepService.getBusiDayStepByDayAndUser(userUuid, valueday);
+                            if(null == busiDayStep) {
+                                //添加
+                                busiDayStep = new BusiDayStep();
+                                busiDayStep.setBsdspCdate(new Date());
+                                busiDayStep.setBsdspStep(step);
+                                busiDayStep.setBsdspDay(valueday);
+                                busiDayStep.setBsdspUser(userUuid);
+                                busiDayStep.setBsdspUuid(RandomUtil.generateString(16));
+                                busiDayStepService.insertBusiDayStep(busiDayStep);
+                            } else {
+                                //修改
+                                busiDayStep.setBsdspStep(step);
+                                busiDayStep.setBsdspCdate(new Date());
+                                busiDayStepService.updateBusiDayStep(busiDayStep);
+                            }
+                        }
+                    }
+                }
+            }
+            logger.info(result);
+        } catch (Exception e) {
+            logger.info(userUuid + "同步失败");
+            writeAjaxJSONResponse(ResultMessageBuilder.build(false, -1, "同步失败!"), response);
+            logger.info("[BusiDayStepController]:end getWeRunData");
+            return;
+        }
+
+        writeAjaxJSONResponse(ResultMessageBuilder.build(true, 1, "同步成功"), response);
+        logger.info("[BusiDayStepController]:end getWeRunData");
+    }
 
     /**
      * 添加
