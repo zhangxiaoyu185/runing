@@ -343,7 +343,7 @@ public class CoreUserController extends BaseController {
         CoreUserVO coreUserVO = new CoreUserVO();
         coreUserVO.convertPOToVO(coreUser);
 
-        BusiDayStep nowbusiDayStep = busiDayStepService.getBusiDayStepByDayAndUser(DateUtil.getToday(DateUtil.DEFAULT_PATTERN), crusrUuid);
+        BusiDayStep nowbusiDayStep = busiDayStepService.getBusiDayStepByDayAndUser(crusrUuid, DateUtil.getToday(DateUtil.DEFAULT_PATTERN));
         int monthsum = busiDayStepService.getSumBusiDayStepByMonth(crusrUuid);
         int weeksum = busiDayStepService.getSumBusiDayStepByWeek(crusrUuid);
         List<BusiDayStep> list = busiDayStepService.findBusiDayStepBySevenDay(crusrUuid);

@@ -166,6 +166,7 @@ public class BusiWeekStepController extends BaseController {
             vo = new BusiWeekStepVO();
             vo.convertPOToVO(busiWeekStep);
             vo.setBswspUserName(userMap.get(busiWeekStep.getBswspUser())==null?null:userMap.get(busiWeekStep.getBswspUser()).getCrusrName());
+            vo.setBswspUserHead(userMap.get(busiWeekStep.getBswspUser())==null?null:userMap.get(busiWeekStep.getBswspUser()).getCrusrWxHeadimgurl());
             vos.add(vo);
         }
         Map<String, Object> map = new HashMap<>();

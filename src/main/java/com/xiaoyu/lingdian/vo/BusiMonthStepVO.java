@@ -36,6 +36,12 @@ public class BusiMonthStepVO implements BaseVO {
     private String bsmspUserName;
 
     /**
+     * 所属用户头像
+     */
+    @ApiModelProperty(value = "所属用户头像")
+    private String bsmspUserHead;
+
+    /**
      * 创建时间
      */
     @ApiModelProperty(value = "创建时间")
@@ -141,6 +147,14 @@ public class BusiMonthStepVO implements BaseVO {
 
     public void setRank(Integer rank) {
         this.rank = rank;
+    }
+
+    public String getBsmspUserHead() {
+        return bsmspUserHead;
+    }
+
+    public void setBsmspUserHead(String bsmspUserHead) {
+        this.bsmspUserHead = bsmspUserHead;
     }
 
     public BusiMonthStepVO() {

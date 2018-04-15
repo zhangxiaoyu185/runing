@@ -162,6 +162,7 @@ public class BusiMonthStepController extends BaseController {
             vo = new BusiMonthStepVO();
             vo.convertPOToVO(busiMonthStep);
             vo.setBsmspUserName(userMap.get(busiMonthStep.getBsmspUser())==null?null:userMap.get(busiMonthStep.getBsmspUser()).getCrusrName());
+            vo.setBsmspUserHead(userMap.get(busiMonthStep.getBsmspUser())==null?null:userMap.get(busiMonthStep.getBsmspUser()).getCrusrWxHeadimgurl());
             vos.add(vo);
         }
         Map<String, Object> map = new HashMap<>();

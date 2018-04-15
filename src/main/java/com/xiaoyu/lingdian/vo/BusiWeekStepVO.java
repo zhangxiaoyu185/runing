@@ -36,6 +36,12 @@ public class BusiWeekStepVO implements BaseVO {
     private String bswspUserName;
 
     /**
+     * 所属用户头像
+     */
+    @ApiModelProperty(value = "所属用户头像")
+    private String bswspUserHead;
+
+    /**
      * 创建时间
      */
     @ApiModelProperty(value = "创建时间")
@@ -155,6 +161,14 @@ public class BusiWeekStepVO implements BaseVO {
 
     public void setRank(Integer rank) {
         this.rank = rank;
+    }
+
+    public String getBswspUserHead() {
+        return bswspUserHead;
+    }
+
+    public void setBswspUserHead(String bswspUserHead) {
+        this.bswspUserHead = bswspUserHead;
     }
 
     public BusiWeekStepVO() {

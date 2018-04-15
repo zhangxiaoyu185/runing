@@ -135,71 +135,6 @@ public class BusiDayStepController extends BaseController {
     }
 
     /**
-     * 添加
-     *
-     * @param bsdspUser  所属用户
-     * @param bsdspCdate 创建时间
-     * @param bsdspDay   所属日期
-     * @param bsdspStep  步数
-     * @return
-     */
-    @ApiOperation(value = "添加", httpMethod = "POST", notes = "添加")
-    @RequestMapping(value = "/add/busiDayStep", method = RequestMethod.POST)
-    public void addBusiDayStep(
-            @ApiParam(value = "所属用户", required = true) @RequestParam(value = "bsdspUser", required = true) String bsdspUser,
-            @ApiParam(value = "创建时间", required = true) @RequestParam(value = "bsdspCdate", required = true) Date bsdspCdate,
-            @ApiParam(value = "所属日期", required = true) @RequestParam(value = "bsdspDay", required = true) String bsdspDay,
-            @ApiParam(value = "步数", required = true) @RequestParam(value = "bsdspStep", required = true) Integer bsdspStep,
-            HttpServletResponse response) {
-        logger.info("[BusiDayStepController]:begin addBusiDayStep");
-        BusiDayStep busiDayStep = new BusiDayStep();
-        String uuid = RandomUtil.generateString(16);
-        busiDayStep.setBsdspUuid(uuid);
-        busiDayStep.setBsdspUser(bsdspUser);
-        busiDayStep.setBsdspCdate(bsdspCdate);
-        busiDayStep.setBsdspDay(bsdspDay);
-        busiDayStep.setBsdspStep(bsdspStep);
-
-        busiDayStepService.insertBusiDayStep(busiDayStep);
-
-        writeAjaxJSONResponse(ResultMessageBuilder.build(true, 1, "新增成功!"), response);
-        logger.info("[BusiDayStepController]:end addBusiDayStep");
-    }
-
-    /**
-     * 修改
-     *
-     * @param bsdspUuid  标识UUID
-     * @param bsdspUser  所属用户
-     * @param bsdspCdate 创建时间
-     * @param bsdspDay   所属日期
-     * @param bsdspStep  步数
-     * @return
-     */
-    @RequestMapping(value = "/update/busiDayStep", method = RequestMethod.POST)
-    @ApiOperation(value = "修改", httpMethod = "POST", notes = "修改")
-    public void updateBusiDayStep(
-            @ApiParam(value = "标识UUID", required = true) @RequestParam(value = "bsdspUuid", required = true) String bsdspUuid,
-            @ApiParam(value = "所属用户", required = true) @RequestParam(value = "bsdspUser", required = true) String bsdspUser,
-            @ApiParam(value = "创建时间", required = true) @RequestParam(value = "bsdspCdate", required = true) Date bsdspCdate,
-            @ApiParam(value = "所属日期", required = true) @RequestParam(value = "bsdspDay", required = true) String bsdspDay,
-            @ApiParam(value = "步数", required = true) @RequestParam(value = "bsdspStep", required = true) Integer bsdspStep,
-            HttpServletResponse response) {
-        logger.info("[BusiDayStepController]:begin updateBusiDayStep");
-        BusiDayStep busiDayStep = new BusiDayStep();
-        busiDayStep.setBsdspUuid(bsdspUuid);
-        busiDayStep.setBsdspUser(bsdspUser);
-        busiDayStep.setBsdspCdate(bsdspCdate);
-        busiDayStep.setBsdspDay(bsdspDay);
-        busiDayStep.setBsdspStep(bsdspStep);
-
-        busiDayStepService.updateBusiDayStep(busiDayStep);
-
-        writeAjaxJSONResponse(ResultMessageBuilder.build(true, 1, "修改成功!"), response);
-        logger.info("[BusiDayStepController]:end updateBusiDayStep");
-    }
-
-    /**
      * 日步数排行榜<List>
      *
      * @param bsdspDay   上一次的日期(yyyy-MM-dd)
@@ -240,6 +175,7 @@ public class BusiDayStepController extends BaseController {
             vo = new BusiDayStepVO();
             vo.convertPOToVO(busiDayStep);
             vo.setBsdspUserName(userMap.get(busiDayStep.getBsdspUser())==null?null:userMap.get(busiDayStep.getBsdspUser()).getCrusrName());
+            vo.setBsdspUserHead(userMap.get(busiDayStep.getBsdspUser())==null?null:userMap.get(busiDayStep.getBsdspUser()).getCrusrWxHeadimgurl());
             vos.add(vo);
         }
         Map<String, Object> map = new HashMap<>();

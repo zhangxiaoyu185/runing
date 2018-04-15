@@ -36,6 +36,12 @@ public class BusiDayStepVO implements BaseVO {
     private String bsdspUserName;
 
     /**
+     * 所属用户头像
+     */
+    @ApiModelProperty(value = "所属用户头像")
+    private String bsdspUserHead;
+
+    /**
      * 创建时间
      */
     @ApiModelProperty(value = "创建时间")
@@ -115,6 +121,14 @@ public class BusiDayStepVO implements BaseVO {
         this.rank = rank;
     }
 
+    public String getBsdspUserHead() {
+        return bsdspUserHead;
+    }
+
+    public void setBsdspUserHead(String bsdspUserHead) {
+        this.bsdspUserHead = bsdspUserHead;
+    }
+
     public BusiDayStepVO() {
     }
 
@@ -131,5 +145,6 @@ public class BusiDayStepVO implements BaseVO {
         this.bsdspCdate = po.getBsdspCdate();
         this.bsdspDay = po.getBsdspDay();
         this.bsdspStep = po.getBsdspStep();
+        this.rank = po.getRank();
     }
 }
