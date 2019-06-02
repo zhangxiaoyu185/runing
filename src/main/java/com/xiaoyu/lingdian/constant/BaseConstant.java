@@ -25,7 +25,7 @@ public class BaseConstant {
     /**
      * 项目域名
      */
-    public static String DEFAULT_DOMAIN_NAME = "https://run.webaiyun.com/";
+    public static String DEFAULT_DOMAIN_NAME = "https://jgj.hzlingdian.com/";
 
     /**
      * 音频软件默认目录
