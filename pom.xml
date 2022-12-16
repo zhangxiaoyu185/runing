@@ -8,7 +8,7 @@
     <name>xiaoyu Webapp</name>
     <url>http://maven.apache.org</url>
     <properties>
-        <spring.version>4.1.1.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
         <jackson.version>1.9.5</jackson.version>
         <jersey.version>1.12</jersey.version>
         <shiro.version>1.2.0</shiro.version>
